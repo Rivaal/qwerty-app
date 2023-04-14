@@ -9,6 +9,11 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+use App\Models\Banner1;
+use App\Models\Gallery;
+use App\Models\Categories;
+use App\Models\Video;
+
 /**
  * Class BaseController
  *
@@ -43,6 +48,11 @@ abstract class BaseController extends Controller
      */
     // protected $session;
 
+    protected $banner1;
+    protected $gallery;
+    protected $categories;
+    protected $video;
+
     /**
      * Constructor.
      */
@@ -52,7 +62,10 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+        $this->banner1 = new Banner1();
+        $this->gallery = new Gallery();
+        $this->categories = new Categories();
+        $this->video = new Video();
         // E.g.: $this->session = \Config\Services::session();
     }
 }

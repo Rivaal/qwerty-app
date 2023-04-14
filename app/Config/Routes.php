@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('PageUser');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -29,7 +29,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'PageUser::home');
+$routes->get('galeri/', 'PageUser::galeri');
+$routes->get('detailgaleri(:any)', 'PageUser::detailgaleri::$1');
+$routes->get('detailfoto(:any)', 'PageUser::detailfoto::$1');
+$routes->get('video/', 'PageUser::video');
+$routes->get('katalog/', 'PageUser::katalog');
+$routes->get('caratransaksi/', 'PageUser::caratransaksi');
+$routes->get('hubungikami/', 'PageUser::hubungikami');
 
 /*
  * --------------------------------------------------------------------
