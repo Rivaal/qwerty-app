@@ -57,9 +57,19 @@ class PageUser extends BaseController
     {
         return view('user/katalog');
     }
-    public function caratransaksi()
+    public function katalogdetail($type)
     {
-        return view('user/cara_transaksi');
+        if ($type == "Indoor") {
+            $package = $this->package->indoorPackage();
+
+            // echo "<pre>";
+            // print_r($package);
+            $data = [
+                'id' => $type,
+                'package' => $package
+            ];
+            return view('user/katalogdetail', $data);
+        }
     }
     public function hubungikami()
     {

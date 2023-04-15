@@ -35,6 +35,7 @@ $routes->get('detailgaleri(:any)', 'PageUser::detailgaleri::$1');
 $routes->get('detailfoto(:any)', 'PageUser::detailfoto::$1');
 $routes->get('video/', 'PageUser::video');
 $routes->get('katalog/', 'PageUser::katalog');
+$routes->get('katalogdetail(:any)', 'PageUser::katalogdetail::$1');
 $routes->get('caratransaksi/', 'PageUser::caratransaksi');
 $routes->get('hubungikami/', 'PageUser::hubungikami');
 

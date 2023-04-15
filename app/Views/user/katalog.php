@@ -28,7 +28,7 @@ $level = $session->get('level'); ?>
                 <div class="col-sm-6 col-12">
                     <div class="feature-box fbox-center fbox-outline fbox-lg fbox-effect">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-home i-alt"></i></a>
+                            <a href="../katalogdetail/Indoor"><i class="icon-home i-alt"></i></a>
                         </div>
                         <div class="fbox-content">
                             <h3>Katalog Studio</h3>
@@ -41,7 +41,7 @@ $level = $session->get('level'); ?>
                 <div class="col-sm-6 col-lg-4">
                     <div class="feature-box fbox-center fbox-outline fbox-lg fbox-effect">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-door-open i-alt"></i></a>
+                            <a href="../katalogdetail/Outdoor"><i class="icon-door-open i-alt"></i></a>
                         </div>
                         <div class="fbox-content">
                             <h3>Katalog Outdoor</h3>

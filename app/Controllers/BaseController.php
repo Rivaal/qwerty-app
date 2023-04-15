@@ -13,6 +13,7 @@ use App\Models\Banner1;
 use App\Models\Gallery;
 use App\Models\Categories;
 use App\Models\Video;
+use App\Models\Package;
 
 /**
  * Class BaseController
@@ -52,6 +53,7 @@ abstract class BaseController extends Controller
     protected $gallery;
     protected $categories;
     protected $video;
+    protected $package;
 
     /**
      * Constructor.
@@ -66,6 +68,7 @@ abstract class BaseController extends Controller
         $this->gallery = new Gallery();
         $this->categories = new Categories();
         $this->video = new Video();
+        $this->package = new Package();
         // E.g.: $this->session = \Config\Services::session();
     }
 }
