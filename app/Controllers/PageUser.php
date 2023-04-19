@@ -34,17 +34,21 @@ class PageUser extends BaseController
     }
     public function detailfoto($id)
     {
-        // echo "<pre>";
-        $data['photo_name'] = $this->gallery->photoName($id);
-        $data['detail'] = $this->gallery->detailPhoto($id);
-        $categoriesId = $data['detail']['category_gallery'];
-        $categoriesIdBatch = explode(',', $categoriesId);
-        $fixedCategoriesId = $categoriesIdBatch[array_rand($categoriesIdBatch)];
-        $data['categories_name'] = $this->categories->categoriesName($fixedCategoriesId);
-        $data['related_detail'] = $this->gallery->relatedDetailGalleryByCategory($fixedCategoriesId, $id);
+        if ($this->session->has('isLoggedIn')) {
+            // echo "<pre>";
+            $data['photo_name'] = $this->gallery->photoName($id);
+            $data['detail'] = $this->gallery->detailPhoto($id);
+            $categoriesId = $data['detail']['category_gallery'];
+            $categoriesIdBatch = explode(',', $categoriesId);
+            $fixedCategoriesId = $categoriesIdBatch[array_rand($categoriesIdBatch)];
+            $data['categories_name'] = $this->categories->categoriesName($fixedCategoriesId);
+            $data['related_detail'] = $this->gallery->relatedDetailGalleryByCategory($fixedCategoriesId, $id);
 
-        // print_r($fixedCategoriesId);
-        return view('user/detailfoto', $data);
+            // print_r($fixedCategoriesId);
+            return view('user/detailfoto', $data);
+        } else {
+            return redirect()->to('login');
+        }
     }
     public function video()
     {
@@ -69,7 +73,42 @@ class PageUser extends BaseController
                 'package' => $package
             ];
             return view('user/katalogdetail', $data);
+        } elseif ($type == "Outdoor") {
+            $package = $this->package->outdoorPackage();
+
+            // echo "<pre>";
+            // print_r($package);
+            $data = [
+                'id' => $type,
+                'package' => $package
+            ];
+            return view('user/katalogdetail', $data);
         }
+    }
+    public function katalogsearch($search)
+    {
+        $data['package'] = $this->package->searchPackage($search);
+        $data['id'] = $search;
+        // echo "<pre>";
+        // print_r($data);
+        return view('user/katalogsearch', $data);
+    }
+    public function singledetail($id)
+    {
+        if ($this->session->has('isLoggedIn')) {
+            $data['package'] = $this->detailpackage->singleDetail($id);
+            $data['other'] = $this->detailpackage->otherPackage($id);
+            // echo "<pre>";
+            // print_r($data);
+            return view('user/singledetail', $data);
+        } else {
+            return redirect()->to('login');
+        }
+    }
+    public function packagedetail($id)
+    {
+        $package = $this->package->detailPackage($id);
+        return view('user/packagesdetail', $package);
     }
     public function hubungikami()
     {

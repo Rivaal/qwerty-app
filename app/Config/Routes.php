@@ -36,7 +36,13 @@ $routes->get('detailfoto(:any)', 'PageUser::detailfoto::$1');
 $routes->get('video/', 'PageUser::video');
 $routes->get('katalog/', 'PageUser::katalog');
 $routes->get('katalogdetail(:any)', 'PageUser::katalogdetail::$1');
+$routes->get('katalogsearch(:any)', 'PageUser::katalogsearch::$1');
+$routes->get('packagedetail(:any)', 'PageUser::packagedetail::$1');
+$routes->get('singledetail(:any)', 'PageUser::singledetail::$1');
 $routes->get('caratransaksi/', 'PageUser::caratransaksi');
+$routes->get('login', 'Auth::loginclient');
+$routes->post('logins', 'Auth::logincheckclient');
+$routes->get('logout', 'Auth::logoutclient');
 $routes->get('hubungikami/', 'PageUser::hubungikami');
 
 /*

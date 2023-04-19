@@ -14,6 +14,8 @@ use App\Models\Gallery;
 use App\Models\Categories;
 use App\Models\Video;
 use App\Models\Package;
+use App\Models\DetailPackage;
+use App\Models\ClientAccount;
 
 /**
  * Class BaseController
@@ -54,6 +56,8 @@ abstract class BaseController extends Controller
     protected $categories;
     protected $video;
     protected $package;
+    protected $detailpackage;
+    protected $clientaccount;
 
     /**
      * Constructor.
@@ -69,6 +73,9 @@ abstract class BaseController extends Controller
         $this->categories = new Categories();
         $this->video = new Video();
         $this->package = new Package();
+        $this->detailpackage = new DetailPackage();
+        $this->client = new ClientAccount();
+        $this->session = \Config\Services::session();
         // E.g.: $this->session = \Config\Services::session();
     }
 }

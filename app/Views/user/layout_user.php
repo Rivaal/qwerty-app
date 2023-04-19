@@ -1,3 +1,5 @@
+<?php $session = \Config\Services::session();
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
@@ -94,7 +96,22 @@
                             <!-- Top Account
 							============================================= -->
                             <div class="header-misc-icon">
-                                <a href="<?= base_url('Auth/Login'); ?>"><i class="icon-line2-user"></i></a>
+                                <?php if ($session->has('isLoggedIn') && $session->get('isLoggedIn') === true) { ?>
+                                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="true"><i class="icon-line2-user"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu1">
+                                    <a class="dropdown-item text-start" href="#">Akun</a>
+                                    <a class="dropdown-item text-start" href="#">Pesan <span
+                                            class="badge rounded-pill bg-secondary float-end"
+                                            style="margin-top: 3px;">0</span></a>
+                                    <a class="dropdown-item text-start" href="#">Pengaturan</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-start" href="../logout">Keluar <i
+                                            class="icon-signout"></i></a>
+                                </ul>
+                                <?php } else { ?>
+                                <a href="../login"><i class="icon-line2-user"></i></a>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -297,6 +314,9 @@
         $(".hubungikami").addClass('current');
     }
     </script>
+
+    <?= $this->renderSection('script') ?>
+
 
 </body>
 

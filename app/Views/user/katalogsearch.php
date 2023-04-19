@@ -8,7 +8,7 @@ $level = $session->get('level'); ?>
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1><?= $id ?></h1>
+        <h1>Pencarian '<?= $id ?>'</h1>
         <span></span>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
@@ -21,10 +21,10 @@ $level = $session->get('level'); ?>
 
     <div class="container widget subscribe-widget mt-0 clearfix">
         <div class="widget-subscribe-form-result"></div>
-        <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+        <form id="widget-subscribe-form" action="" method="post" class="mb-0">
             <div class="input-group input-group-lg mx-auto">
                 <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email"
-                    class="form-control required email" placeholder="Cari Katalog ...">
+                    class="form-control required email" placeholder="Cari Katalog ..." value="<?= $id ?>">
                 <button class="button button-black fw-light button-dark ls2 text-uppercase"
                     onclick="search();">CARI</button>
             </div>
@@ -59,9 +59,6 @@ $level = $session->get('level'); ?>
                                 </div>
                                 <div class="bg-overlay-bg bg-transparent"></div>
                             </div>
-                            <?php if ($result['disc_package'] != 0) {?>
-                            <div class="badge bg-success p-2">Disc <?= $result['disc_package'] ?>%</div>
-                            <?php } ?>
                         </div>
                         <div class="product-desc col-lg-8 col-xl-9 px-lg-5 pt-lg-0">
                             <div class="product-title">
@@ -72,7 +69,8 @@ $level = $session->get('level'); ?>
                             <?php if ($result['disc_package'] != 0) {?>
                             <div class="product-price">
                                 <del>Rp <?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
-                                <ins>Rp <?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
+                                <ins>Rp <?= number_format($result['price_last_package'], 0, ",", "."); ?> (Diskon
+                                    <?= $result['disc_package']; ?>%)</ins>
                             </div>
                             <?php } else { ?>
                             <div class="product-price"><ins>Rp
@@ -85,12 +83,14 @@ $level = $session->get('level'); ?>
                 </div>
 
                 <?php endforeach; ?>
+                <?php if (count($package) == 0) {
+                    echo "<div class='center'><span>Katalog yang dicari tidak ditemukan.</span></div>";
+                } ?>
             </div><!-- #shop end -->
 
         </div>
     </div>
 </section><!-- #content end -->
-
 <?= $this->EndSection('content') ?>
 
 

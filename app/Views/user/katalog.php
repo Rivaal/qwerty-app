@@ -15,6 +15,20 @@ $level = $session->get('level'); ?>
             <li class="breadcrumb-item active" aria-current="page">Katalog</li>
         </ol>
     </div>
+
+    <br>
+
+    <div class="container widget subscribe-widget mt-0 clearfix">
+        <div class="widget-subscribe-form-result"></div>
+        <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+            <div class="input-group input-group-lg mx-auto">
+                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email"
+                    class="form-control required email" placeholder="Cari katalog ...">
+                <button class="button button-black fw-light button-dark ls2 text-uppercase"
+                    onclick="search();">CARI</button>
+            </div>
+        </form>
+    </div>
 </section><!-- #page-title end -->
 
 <!-- Content
@@ -59,3 +73,14 @@ $level = $session->get('level'); ?>
     </div>
 </section><!-- #content end -->
 <?= $this->EndSection('content') ?>
+
+<?= $this->section('script'); ?>
+<script>
+function search() {
+    var text = $('#widget-subscribe-form-email').val();
+    if (text != "") {
+        window.location.replace("../katalogsearch/" + text);
+    }
+}
+</script>
+<?= $this->EndSection('script'); ?>

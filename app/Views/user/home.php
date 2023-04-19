@@ -187,6 +187,5 @@ $level = $session->get('level'); ?>
 
             </div>
         </div>
-    </div>
 </section><!-- #content end -->
 <?= $this->EndSection('content') ?>
