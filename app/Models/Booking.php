@@ -20,6 +20,7 @@ class Booking extends Model
         'jam_sesi',
         'catatan',
         'status',
+        'invoice',
         'create_chart',
     ];
     public function getLastData()
@@ -41,7 +42,7 @@ class Booking extends Model
     {
         $db = db_connect();
         $builder = $db->table('booking b');
-        $builder->select('b.id_booking, b.id_client, b.id_package, b.lokasi, b.harga_katalog, b.diskon, b.total_akhir, b.tanggal_sesi, b.jam_sesi, b.catatan, b.status, b.create_chart, p.type_package, p.title_package, p.desc_package, p.image_package, p.note_package')
+        $builder->select('b.id_booking, b.id_client, b.id_package, b.lokasi, b.harga_katalog, b.diskon, b.total_akhir, b.tanggal_sesi, b.jam_sesi, b.catatan, b.status, b.invoice, b.create_chart, p.type_package, p.title_package, p.desc_package, p.image_package, p.note_package')
                 ->where('b.id_booking', "$idbooking")
                 ->join('package p', 'p.id_package = b.id_package')
                 ->limit(1);

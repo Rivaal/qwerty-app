@@ -23,6 +23,24 @@ $level = $session->get('level'); ?>
         <div class="container clearfix">
 
             <div class="row col-mb-50">
+                <ul class="process-steps process-3 row col-mb-30 justify-content-center mb-4">
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-rounded i-alt mx-auto bg-color">1</a>
+                        <h5>Booking</h5>
+                    </li>
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-rounded i-alt mx-auto bg-color">2</a>
+                        <h5>Bayar Pesanan</h5>
+                    </li>
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-bordered i-rounded mx-auto">3</a>
+                        <h5>Konfirmasi Pembayaran</h5>
+                    </li>
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-bordered i-rounded mx-auto">3</a>
+                        <h5>Verifikasi</h5>
+                    </li>
+                </ul>
                 <div class="col-md-7">
                     <div class="fancy-title title-bottom-border">
                         <h3>Lakukan Pembayaran Sebelum</h3>
@@ -30,9 +48,8 @@ $level = $session->get('level'); ?>
                     <div id="countdown-ex3" class="countdown countdown-large" data-year="<?= $year ?>"
                         data-month="<?= $month ?>" data-day="<?= $day ?>" data-format="dHMS">
                     </div><br>
-                    <p>Pembayaran yang tidak dilakukan pada rentang waktu diatas atau sebelum tanggal
-                        <?= $booking['tanggal_sesi'] ?> maka pesanan
-                        akan secara otomatis dibatalkan.
+                    <p>Apabila pembayaran yang tidak dilakukan pada rentang waktu diatas atau sebelum
+                        <?= $booking['tanggal_sesi'] ?>, pesanan akan secara otomatis dibatalkan.
                     </p>
 
 
@@ -40,10 +57,10 @@ $level = $session->get('level'); ?>
                         <h3>Cara pembayaran</h3>
                     </div>
 
-                    <p>Pembayaran dilakukan dengan membayar sebanyak total biaya yaitu sebesar
-                        Rp<?= number_format($lunas, 0, ",", "."); ?> atau dengan melakukan
-                        pembayaran DP 50% dari total biaya atau sebesar
-                        Rp<?= number_format($dp, 0, ",", "."); ?>.</p>
+                    <p>Anda dapat melakukan pembayaran dengan dua opsi, yaitu membayar secara penuh dengan total biaya
+                        sebesar Rp<?= number_format($lunas, 0, ",", "."); ?> atau melakukan pembayaran DP 50% dari total
+                        biaya yaitu sebesar Rp<?= number_format($dp, 0, ",", "."); ?>, pelunasan dilakukan sebelum
+                        sesi pemotretan dimulai.</p>
                     <p>Tata cara pembayaran :</p>
 
                     <div class="accordion accordion-bg">
@@ -58,26 +75,19 @@ $level = $session->get('level'); ?>
                         </div>
                         <div class="accordion-content">
                             <ul class="iconlist iconlist-color mb-0">
-                                <li><i class="icon-minus"></i>Buka Aplikasi Gojek.</li>
-                                <li><i class="icon-minus"></i>Klik menu "Bayar" pada halaman utama Gojek</li>
-                                <li><i class="icon-minus"></i>Masukan nomor HP "081365010229" pada form yang disediakan
-                                </li>
-                                <li><i class="icon-minus"></i>Masukan nominal pembayaran sebesar
-                                    Rp<?= number_format($lunas, 0, ",", "."); ?>(Lunas), atau
-                                    nominal Rp<?= number_format($dp, 0, ",", "."); ?>(DP) lalu Klik konfirmasi
-                                </li>
-                                <li><i class="icon-minus"></i>Pastikan nama penerimanya atas nama Rivaldo Saputra
-                                </li>
-                                <li><i class="icon-minus"></i>Konfirmasi pembayaran kamu dengan memasukan PIN GoPay kamu
-                                </li>
-                                <li><i class="icon-minus"></i>Kamu akan mendapatkan notifikasi bahwa kamu telah berhasil
-                                    melakukan transfer GoPay
-                                </li>
-                                <li><i class="icon-minus"></i>Screenshoot bukti pembayaran kamu
-                                </li>
-                                <li><i class="icon-minus"></i>Tekan tombol "Konfirmasi Pembayaran" dihalaman QWERTY
-                                    Studio untuk
-                                    menkonfirmasi pembayaran kamu lalu ikuti tahap selanjutnya</li>
+                                <li><i class="icon-minus"></i>Buka aplikasi Gojek.</li>
+                                <li><i class="icon-minus"></i>Pilih menu "Bayar" pada halaman utama aplikasi</li>
+                                <li><i class="icon-minus"></i>Isi nomor HP "081365010229" pada form yang tersedia</li>
+                                <li><i class="icon-minus"></i>Masukkan nominal pembayaran sebesar
+                                    Rp<?= number_format($lunas, 0, ",", "."); ?> (lunas) atau
+                                    Rp<?= number_format($dp, 0, ",", "."); ?> (DP) dan klik konfirmasi</li>
+                                <li><i class="icon-minus"></i>Pastikan nama penerima atas nama Rivaldo Saputra</li>
+                                <li><i class="icon-minus"></i>Konfirmasikan pembayaran dengan memasukkan PIN GoPay</li>
+                                <li><i class="icon-minus"></i>Setelah berhasil melakukan transfer GoPay, kamu akan
+                                    menerima notifikasi</li>
+                                <li><i class="icon-minus"></i>Screenshot bukti pembayaran kamu</li>
+                                <li><i class="icon-minus"></i>Tekan tombol "Konfirmasi Pembayaran" pada halaman QWERTY
+                                    Studio untuk mengkonfirmasi pembayaran dan lanjut ke tahap selanjutnya.</li>
                             </ul>
                         </div>
 
@@ -290,7 +300,7 @@ $level = $session->get('level'); ?>
                 </div>
 
                 <div class="col-md-5">
-                    <h4>Katalog Dipilih</h4>
+                    <h4>Katalog Dipesan</h4>
 
                     <div class="table-responsive">
                         <table class="table cart">
@@ -339,6 +349,15 @@ $level = $session->get('level'); ?>
                             <tbody>
                                 <tr class="cart_item">
                                     <td class="border-top-0 cart-product-name">
+                                        <strong>Invoice</strong>
+                                    </td>
+
+                                    <td class="border-top-0 cart-product-name">
+                                        <span class="amount"><strong><?= $booking['invoice']; ?></strong></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="border-top-0 cart-product-name">
                                         <strong>Harga Katalog</strong>
                                     </td>
 
@@ -372,7 +391,7 @@ $level = $session->get('level'); ?>
                                     </td>
 
                                     <td class="cart-product-name">
-                                        <span class="amount color lead"><?= $booking['lokasi']?></span>
+                                        <span class="amount color"><?= $booking['lokasi']?></span>
                                     </td>
                                 </tr>
                                 <tr class="cart_item">
@@ -381,7 +400,7 @@ $level = $session->get('level'); ?>
                                     </td>
 
                                     <td class="cart-product-name">
-                                        <span class="amount color lead"><?= $booking['tanggal_sesi']?></span>
+                                        <span class="amount color"><?= $booking['tanggal_sesi']?></span>
                                     </td>
                                 </tr>
                                 <tr class="cart_item">
@@ -390,16 +409,24 @@ $level = $session->get('level'); ?>
                                     </td>
 
                                     <td class="cart-product-name">
-                                        <span class="amount color lead"><?= $booking['catatan']?></span>
+                                        <span class="amount color"><?= $booking['catatan']?></span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <br>
                     </div>
+                    <ul class="clients-grid grid-2 grid-sm-3 grid-md-4 mb-0">
+                        <li class="grid-item"><a><img src="../assets/userimg/partner/Gojek.png" alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="../assets/userimg/partner/Dana.webp" alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="../assets/userimg/partner/BNI.png" alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="../assets/userimg/partner/BRI.png" alt="Clients"></a></li>
+                    </ul>
+                    <br>
                     <div class="col-12 form-group">
-                        <button class="button button-3d button-large w-100 m-0 button-blue"
-                            name="template-jobform-apply" type="button" value="apply">Konfirmasi Pembayaran</button>
+                        <button id="button-proses" class="button button-large w-100 m-0 button-blue"
+                            onclick="confirm('<?= $booking['id_booking']; ?>');">Konfirmasi Pembayaran
+                            <i class="icon-line-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -413,10 +440,25 @@ $level = $session->get('level'); ?>
 <?= $this->Section('script') ?>
 <!-- For Countdown -->
 <script src="<?= base_url(); ?>js/components/moment.js"></script>
-
 <script>
-$(function() {
-
-});
+function confirm(idbooking) {
+    $.ajax({
+        type: "get",
+        url: "../konfirmasipembayaran/" + idbooking,
+        data: "",
+        dataType: "json",
+        beforeSend: function(xhr) {
+            $('#button-proses').prop('disabled', true);
+            $('#button-proses').text('Loading...')
+        },
+        success: function(response) {
+            window.location.replace("../konfirmpembayaran/" + response.success);
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + "\n" + xhr.responseText + "\n" +
+                thrownError);
+        }
+    });
+}
 </script>
 <?= $this->EndSection('script') ?>

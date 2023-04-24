@@ -38,7 +38,8 @@
                 ============================================= -->
                 <form class="cart mb-0 d-flex justify-content-between" method="post" enctype='multipart/form-data'>
                     <div class=" quantity clearfix">
-                        <a href="../booking/<?= $id_package ?>" class="add-to-cart button m-0 button-green">BOOKING</a>
+                        <a href="../booking/<?= $id_package ?>"
+                            class="add-to-cart button button-border button-blue">BOOKING</a>
                     </div>
                     <?php if ($cart == true) {?>
                     <button type="button" class="add-to-cart button m-0" disabled>

@@ -130,7 +130,7 @@ $level = $session->get('level'); ?>
                                 enctype='multipart/div-data'>
                                 <div class=" quantity clearfix">
                                     <a href="../booking/<?= $package['id_package']; ?>"
-                                        class="add-to-cart button m-0 button-green">BOOKING</a>
+                                        class="add-to-cart button button-border button-blue">BOOKING</a>
                                 </div>
                                 <?php if ($cart == true) {?>
                                 <button type="button" class="add-to-cart button m-0" disabled>
@@ -476,8 +476,9 @@ $level = $session->get('level'); ?>
                                 <div class="bg-overlay">
                                     <div class="bg-overlay-content align-items-end justify-content-between"
                                         data-hover-animate="fadeIn" data-hover-speed="400">
-                                        <a href="#" class="btn btn-dark me-2"><i class="icon-shopping-cart"></i></a>
-                                        <a href="/packagedetail/<?= $result['id_package']; ?>" class="btn btn-dark"
+                                        <a href="../singledetail/<?= $result['id_package']; ?>"
+                                            class="btn btn-dark me-2"><i class="icon-shopping-cart"></i></a>
+                                        <a href="../packagedetail/<?= $result['id_package']; ?>" class="btn btn-dark"
                                             data-lightbox="ajax"><i class="icon-line-expand"></i></a>
                                     </div>
                                     <div class="bg-overlay-bg bg-transparent"></div>
@@ -500,7 +501,8 @@ $level = $session->get('level'); ?>
                                 </div>
                                 <?php } else { ?>
                                 <div class="product-price">
-                                    <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins></div>
+                                    <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
+                                </div>
                                 <?php } ?>
                                 <div class="product-rating">
                                     <i class="icon-star3"></i>

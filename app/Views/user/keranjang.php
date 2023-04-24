@@ -67,8 +67,8 @@ foreach ($chart as $result) : $totalx = $totalx + $result['price_last_package'];
                         </td>
 
                         <td class="cart-product-quantity">
-                            <a href="../booking/<?= $result['id_package']; ?>"
-                                class="button button-3d m-0 button-green">BOOKING</a>
+                            <a href="../booking/<?= $result['id_package']; ?>" class="button w-100 button-blue">BUAT
+                                PESANAN</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -80,7 +80,7 @@ foreach ($chart as $result) : $totalx = $totalx + $result['price_last_package'];
                                     </div>
                                 </div>
                                 <div class="col-lg-auto pe-lg-0">
-                                    <a href="shop.html" class="button button-3d mt-2 mt-sm-0 me-0 disabled">TOTAL RP
+                                    <a href="shop.html" class="button mt-2 mt-sm-0 me-0 disabled">TOTAL RP
                                         <?= number_format($totalx, 0, ",", "."); ?></a>
                                 </div>
                             </div>

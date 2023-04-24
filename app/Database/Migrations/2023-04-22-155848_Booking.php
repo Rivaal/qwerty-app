@@ -54,6 +54,10 @@ class Booking extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
+            'invoice' => [
+                'type' => 'VARCHAR',
+                'constraint' => 100,
+            ],
             'create_chart' => [
                 'type' => 'DATETIME',
                 'null' => true,

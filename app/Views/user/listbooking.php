@@ -47,14 +47,17 @@ $level = $session->get('level'); ?>
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel">Hapus Pesanan</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Peringatan!</h4>
                                         <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal"
                                             aria-hidden="true"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="mb-0">Kamu yakin ingin menghapus pesanan
-                                            "<?= $result['title_package']; ?>" ini?<br>Data yang dihapus tidak dapat
-                                            dikembalikan.</p>
+                                        <p class="mb-0">Anda yakin ingin menghapus pesanan katalog
+                                            "<?= $result['title_package'] ?>" ini? Harap dicatat bahwa setelah data
+                                            dihapus, tidak akan ada opsi untuk mengembalikan kembali data tersebut serta
+                                            pembayaran yang telah dilakukan untuk pesanan ini juga tidak dapat
+                                            dikembalikan.
+                                        </p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -90,7 +93,13 @@ $level = $session->get('level'); ?>
                         <td class="cart-product-quantity">
                             <?php if ($result['status'] == "Belum dibayar") {?>
                             <a href="../infopembayaran/<?= $result['id_booking']; ?>"
-                                class="button button-3d m-0 button-blue">Bayar</a>
+                                class="button w-100 button-blue">Bayar</a>
+                            <?php } elseif ($result['status'] == "Menunggu Konfirmasi") {?>
+                            <a href="../konfirmpembayaran/<?= $result['id_booking']; ?>"
+                                class="button w-100 button-dirtygreen">Konfirmasi</a>
+                            <?php } elseif ($result['status'] == "Menunggu Verifikasi") {?>
+                            <a href="../verifikasi/<?= $result['id_booking']; ?>"
+                                class="button w-100 button-brown">Detail</a>
                             <?php } ?>
                         </td>
                     </tr>

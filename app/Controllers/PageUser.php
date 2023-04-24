@@ -209,6 +209,16 @@ class PageUser extends BaseController
     {
         $idclient = $this->session->get('client_id');
         $this->booking->removingBooking($idclient, $idbooking);
+        $hasBukti = $this->bukti->findBukti($idbooking);
+        if ($hasBukti) {
+            $this->bukti->where('id_booking', $idbooking)->delete();
+        }
+        $newName = "$idbooking" . '.' . 'png';
+        $file_name = $newName;
+        $file_path = "./assets/userimg/bukti/" . $file_name;
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
         return redirect()->to("listbooking");
     }
     public function booking($idpackage)
@@ -252,6 +262,7 @@ class PageUser extends BaseController
                 $oldNumber = intval(substr($lastChart, 4)); // get the current number 002
                 $newNumber = $oldNumber + 1; // increment the number
                 $newValue = $prefix . '-' . sprintf('%03d', $newNumber);
+                $invoice_number = '#' . date('YmdHis');
 
                 $insert = [
                     'id_booking' => $newValue,
@@ -265,6 +276,47 @@ class PageUser extends BaseController
                     'jam_sesi' => $jamsesi,
                     'catatan' => $catatan,
                     'status' => 'Belum dibayar',
+                    'invoice' => $invoice_number,
+                    'create_chart' => date('Y-m-d H:i:s'),
+                ];
+                $this->booking->insert($insert);
+                $hasChart = $this->chart->findChart($idpackage, $idclient);
+                if ($hasChart) {
+                    $this->chart->where('id_package', $idpackage)->delete();
+                }
+                $msg['success'] = "$newValue";
+            } elseif ($type == "OUT") {
+                $idclient = $this->session->get('client_id');
+                $idpackage = $this->request->getPost('id_cart');
+                $data['client'] = $this->client->clientDetail($idclient);
+                $data['chart'] = $this->package->detailPackage($idpackage);
+
+                $tanggalsesi = $this->request->getPost('tanggal_sesi');
+                $jamsesi = $this->request->getPost('jam_sesi');
+                $catatan = $this->request->getPost('catatan');
+                $lokasi = $this->request->getPost('lokasi');
+
+                // getId
+                $lastChart = $this->booking->getLastData();
+                $prefix = substr($lastChart, 0, 2); // get the prefix "PIND"
+                $oldNumber = intval(substr($lastChart, 4)); // get the current number 002
+                $newNumber = $oldNumber + 1; // increment the number
+                $newValue = $prefix . '-' . sprintf('%03d', $newNumber);
+                $invoice_number = '#' . date('YmdHis');
+
+                $insert = [
+                    'id_booking' => $newValue,
+                    'id_client' => $idclient,
+                    'id_package' => $idpackage,
+                    'lokasi' => $lokasi,
+                    'harga_katalog' => $data['chart']['price_init_package'],
+                    'diskon' => $data['chart']['disc_package'],
+                    'total_akhir' => $data['chart']['price_last_package'],
+                    'tanggal_sesi' => $tanggalsesi,
+                    'jam_sesi' => $jamsesi,
+                    'catatan' => $catatan,
+                    'status' => 'Belum dibayar',
+                    'invoice' => $invoice_number,
                     'create_chart' => date('Y-m-d H:i:s'),
                 ];
                 $this->booking->insert($insert);
@@ -300,6 +352,130 @@ class PageUser extends BaseController
             // echo "<pre>";
             // print_r($data);
             return view('user/infopembayaran', $data);
+        } else {
+            return redirect()->to('login');
+        }
+    }
+    public function bayarpesanan($idbooking)
+    {
+        if ($this->request->isAJAX()) {
+            $this->booking->set('status', 'Belum dibayar')->where('id_booking', $idbooking)->update();
+            $msg['success'] = "$idbooking";
+            echo json_encode($msg);
+        }
+    }
+    public function konfirmasipembayaran($idbooking)
+    {
+        if ($this->request->isAJAX()) {
+            $this->booking->set('status', 'Menunggu Konfirmasi')->where('id_booking', $idbooking)->update();
+            $msg['success'] = "$idbooking";
+            echo json_encode($msg);
+        }
+    }
+    public function konfirmpembayaran($idbooking)
+    {
+        if ($this->session->has('isLoggedIn')) {
+            $client_id = $this->session->get('client_id');
+            $data['booking'] = $this->booking->detailBook($idbooking);
+            $data['bookingall'] = $this->booking->thisClientBook($client_id);
+            $data['chart'] = $this->chart->thisClientChart($client_id);
+            $data['countbooking'] = count($data['bookingall']);
+            $data['countchart'] = count($data['chart']);
+
+            $date = $data['booking']['tanggal_sesi'];
+            $dateParts = explode('/', $date);
+
+            $data['month'] = $dateParts[0];
+            $data['day'] = $dateParts[1];
+            $data['year'] = $dateParts[2];
+
+            $data['lunas'] = $data['booking']['total_akhir'];
+            $data['dp'] = ($data['booking']['total_akhir'] * (50/100));
+
+            // echo "<pre>";
+            // print_r($data);
+            return view('user/konfirmpembayaran', $data);
+        } else {
+            return redirect()->to('login');
+        }
+    }
+    public function acceptbukti($idbooking)
+    {
+        if ($this->request->isAJAX()) {
+            $data = $data = $this->request->getVar();
+
+            $file = $this->request->getFile('bukti-transaksi');
+
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = "$idbooking" . '.' . 'png';
+
+                $file_name = $newName;
+                $file_path = "./assets/userimg/bukti/" . $file_name;
+
+                if (file_exists($file_path)) {
+                    unlink($file_path);
+                }
+
+                $file->move('./assets/userimg/bukti/', $newName);
+                // Save the file name to the database or do something else with it
+
+                $hasBukti = $this->bukti->findBukti($idbooking);
+                if ($hasBukti) {
+                    $this->bukti->where('id_booking', $idbooking)->delete();
+                }
+
+                // getId
+                $lastChart = $this->bukti->getLastData();
+                $prefix = substr($lastChart, 0, 2); // get the prefix "PIND"
+                $oldNumber = intval(substr($lastChart, 4)); // get the current number 002
+                $newNumber = $oldNumber + 1; // increment the number
+                $newValue = $prefix . '-' . sprintf('%03d', $newNumber);
+
+                $insert = [
+                    'id_bukti' => $newValue,
+                    'id_booking' => $idbooking,
+                    'total_bayar' => $data['total-bayar'],
+                    'nominal_bayar' => $data['nominal-bayar'],
+                    'metode_bayar' => $data['metode-pembayaran'],
+                    'no_rek' => $data['no-rek'],
+                    'atas_nama' => $data['atas-nama'],
+                    'bukti_url' => $file_name,
+                    'create_bukti' => date('Y-m-d H:i:s'),
+                ];
+
+                $this->bukti->insert($insert);
+
+                $this->booking->set('status', 'Menunggu Verifikasi')->where('id_booking', $idbooking)->update();
+            }
+
+            echo json_encode($data);
+        }
+    }
+    public function verifikasi($idbooking)
+    {
+        if ($this->session->has('isLoggedIn')) {
+            $client_id = $this->session->get('client_id');
+            $data['booking'] = $this->booking->detailBook($idbooking);
+            $data['bookingall'] = $this->booking->thisClientBook($client_id);
+            $data['chart'] = $this->chart->thisClientChart($client_id);
+            $data['countbooking'] = count($data['bookingall']);
+            $data['countchart'] = count($data['chart']);
+
+            // $date = $data['booking']['tanggal_sesi'];
+            // $dateParts = explode('/', $date);
+
+            // $data['month'] = $dateParts[0];
+            // $data['day'] = $dateParts[1];
+            // $data['year'] = $dateParts[2];
+
+            $data['lunas'] = $data['booking']['total_akhir'];
+            $data['dp'] = ($data['booking']['total_akhir'] * (50/100));
+
+            $data['bukti'] = $this->bukti->detailBukti($idbooking);
+
+            // echo "<pre>";
+            // print_r($data);
+            return view('user/verifikasi', $data);
         } else {
             return redirect()->to('login');
         }

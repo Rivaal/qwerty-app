@@ -23,6 +23,24 @@ $level = $session->get('level'); ?>
     <div class="content-wrap">
         <div class="container clearfix">
             <div class="row col-mb-50 gutter-50">
+                <ul class="process-steps process-3 row col-mb-30 justify-content-center mb-4">
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-rounded i-alt mx-auto bg-color">1</a>
+                        <h5>Booking</h5>
+                    </li>
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-bordered i-rounded mx-auto">2</a>
+                        <h5>Bayar Pesanan</h5>
+                    </li>
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-bordered i-rounded mx-auto">3</a>
+                        <h5>Konfirmasi Pembayaran</h5>
+                    </li>
+                    <li class="col-sm-6 col-lg-3">
+                        <a class="i-bordered i-rounded mx-auto">3</a>
+                        <h5>Verifikasi</h5>
+                    </li>
+                </ul>
                 <div class="col-lg-6">
                     <h3>Data Pesanan</h3>
 
@@ -224,7 +242,7 @@ $level = $session->get('level'); ?>
                         <div class="accordion-content clearfix">Bayar menggunakan saldo Dana Anda.</div>
 
                     </div>
-                    <button id="button-proses" type="button" class="button button-3d float-end" disabled>Proses <i
+                    <button id="button-proses" type="button" class="button button-large w-100" disabled>Buat Pesanan <i
                             class="icon-line-arrow-right"></i></button>
                 </div>
             </div>
@@ -279,6 +297,8 @@ function checkEnable() {
         } else {
             $('#button-proses').prop('disabled', true);
         }
+    } else {
+        $('#button-proses').prop('disabled', true);
     }
 }
 $('#button-proses').click(function(e) {
@@ -301,6 +321,10 @@ $('#button-proses').click(function(e) {
                 catatan: ctt
             },
             dataType: "json",
+            beforeSend: function(xhr) {
+                $('#button-proses').prop('disabled', true);
+                $('#button-proses').text('Membuat...')
+            },
             success: function(response) {
                 window.location.replace("../infopembayaran/" + response.success);
             },

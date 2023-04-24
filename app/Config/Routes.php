@@ -51,6 +51,11 @@ $routes->get('booking(:any)', 'PageUser::booking::$1');
 $routes->get('listbooking', 'PageUser::listbooking');
 $routes->post('prosesbooking(:any)', 'PageUser::prosesbooking::$1');
 $routes->get('infopembayaran(:any)', 'PageUser::infopembayaran::$1');
+$routes->get('konfirmasipembayaran(:any)', 'PageUser::konfirmasipembayaran::$1');
+$routes->get('bayarpesanan(:any)', 'PageUser::bayarpesanan::$1');
+$routes->get('konfirmpembayaran(:any)', 'PageUser::konfirmpembayaran::$1');
+$routes->post('acceptbukti(:any)', 'PageUser::acceptbukti::$1');
+$routes->get('verifikasi(:any)', 'PageUser::verifikasi::$1');
 $routes->get('hubungikami/', 'PageUser::hubungikami');
 
 /*

@@ -53,8 +53,9 @@ $level = $session->get('level'); ?>
                             <div class="bg-overlay">
                                 <div class="bg-overlay-content align-items-end justify-content-between"
                                     data-hover-animate="fadeIn" data-hover-speed="400">
-                                    <a href="#" class="btn btn-dark me-2"><i class="icon-shopping-cart"></i></a>
-                                    <a href="/packagedetail/<?= $result['id_package']; ?>" class="btn btn-dark"
+                                    <a href="../singledetail/<?= $result['id_package']; ?>" class="btn btn-dark me-2"><i
+                                            class="icon-shopping-cart"></i></a>
+                                    <a href="../packagedetail/<?= $result['id_package']; ?>" class="btn btn-dark"
                                         data-lightbox="ajax"><i class="icon-line-expand"></i></a>
                                 </div>
                                 <div class="bg-overlay-bg bg-transparent"></div>
@@ -76,7 +77,8 @@ $level = $session->get('level'); ?>
                             </div>
                             <?php } else { ?>
                             <div class="product-price">
-                                <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins></div>
+                                <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
+                            </div>
                             <?php } ?>
                             <p class="mt-3 d-none d-lg-block">
                                 <?= $result['desc_package']; ?><br><?= $result['note_package']; ?></p>

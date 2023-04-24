@@ -18,6 +18,7 @@ use App\Models\DetailPackage;
 use App\Models\ClientAccount;
 use App\Models\ClientChart;
 use App\Models\Booking;
+use App\Models\BuktiTransaksi;
 
 /**
  * Class BaseController
@@ -62,6 +63,7 @@ abstract class BaseController extends Controller
     protected $clientaccount;
     protected $clientchart;
     protected $booking;
+    protected $bukti;
 
     /**
      * Constructor.
@@ -81,6 +83,7 @@ abstract class BaseController extends Controller
         $this->client = new ClientAccount();
         $this->chart = new ClientChart();
         $this->booking = new Booking();
+        $this->bukti = new BuktiTransaksi();
         $this->session = \Config\Services::session();
         // E.g.: $this->session = \Config\Services::session();
     }
