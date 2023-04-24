@@ -100,12 +100,13 @@ $level = $session->get('level'); ?>
 										============================================= -->
                                 <?php if ($package['disc_package'] != 0) {?>
                                 <div class="product-price">
-                                    <del>Rp <?= number_format($package['price_init_package'], 0, ",", "."); ?></del>
-                                    <ins>Rp <?= number_format($package['price_last_package'], 0, ",", "."); ?></ins>
+                                    <del>Rp<?= number_format($package['price_init_package'], 0, ",", "."); ?></del>
+                                    <ins>Rp<?= number_format($package['price_last_package'], 0, ",", "."); ?></ins>
                                 </div>
                                 <?php } else { ?>
-                                <div class="product-price"><ins>Rp
-                                        <?= number_format($package['price_last_package'], 0, ",", "."); ?></ins></div>
+                                <div class="product-price">
+                                    <ins>Rp<?= number_format($package['price_last_package'], 0, ",", "."); ?></ins>
+                                </div>
                                 <?php } ?>
                                 <!-- Product Single - Price End -->
 
@@ -128,10 +129,17 @@ $level = $session->get('level'); ?>
                             <div class="cart mb-0 d-flex justify-content-between align-items-center"
                                 enctype='multipart/div-data'>
                                 <div class=" quantity clearfix">
-                                    <button type="button" class="add-to-cart button m-0 button-red">Pesan
-                                        Langsung</button>
+                                    <a href="../booking/<?= $package['id_package']; ?>"
+                                        class="add-to-cart button m-0 button-green">BOOKING</a>
                                 </div>
-                                <button type="button" class="add-to-cart button m-0">+ keranjang</button>
+                                <?php if ($cart == true) {?>
+                                <button type="button" class="add-to-cart button m-0" disabled>
+                                    <i class="icon-check"></i><i class="icon-shopping-bag"></i></button>
+                                <?php } else {?>
+                                <a href="../tambahkeranjang/<?= $package['id_package']; ?>"
+                                    class="add-to-cart button m-0">
+                                    <i class="icon-plus"></i><i class="icon-shopping-bag"></i></a>
+                                <?php } ?>
                             </div><!-- Product Single - Quantity & Cart Button End -->
 
                             <div class="line"></div>
@@ -487,12 +495,12 @@ $level = $session->get('level'); ?>
                                 </div>
                                 <?php if ($result['disc_package'] != 0) {?>
                                 <div class="product-price">
-                                    <del>Rp <?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
-                                    <ins>Rp <?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
+                                    <del>Rp<?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
+                                    <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
                                 </div>
                                 <?php } else { ?>
-                                <div class="product-price"><ins>Rp
-                                        <?= number_format($result['price_last_package'], 0, ",", "."); ?></ins></div>
+                                <div class="product-price">
+                                    <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins></div>
                                 <?php } ?>
                                 <div class="product-rating">
                                     <i class="icon-star3"></i>

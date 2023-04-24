@@ -23,8 +23,8 @@
             <div class="col-md-6 product-desc">
                 <?php if ($disc_package != 0) {?>
                 <div class="product-price">
-                    <del>Rp <?= number_format($price_init_package, 0, ",", "."); ?></del>
-                    <ins>Rp <?= number_format($price_last_package, 0, ",", "."); ?>
+                    <del>Rp<?= number_format($price_init_package, 0, ",", "."); ?></del>
+                    <ins>Rp<?= number_format($price_last_package, 0, ",", "."); ?>
                         (<?= $disc_package; ?>%)</ins>
                 </div>
                 <?php } else { ?>
@@ -38,9 +38,15 @@
                 ============================================= -->
                 <form class="cart mb-0 d-flex justify-content-between" method="post" enctype='multipart/form-data'>
                     <div class=" quantity clearfix">
-                        <button type="button" class="add-to-cart button m-0 button-red">Pesan</button>
+                        <a href="../booking/<?= $id_package ?>" class="add-to-cart button m-0 button-green">BOOKING</a>
                     </div>
-                    <button type="submit" class="add-to-cart button m-0">+ keranjang</button>
+                    <?php if ($cart == true) {?>
+                    <button type="button" class="add-to-cart button m-0" disabled>
+                        <i class="icon-check"></i><i class="icon-shopping-bag"></i></button>
+                    <?php } else {?>
+                    <a href="../tambahkeranjang/<?= $id_package ?>" class="add-to-cart button m-0">
+                        <i class="icon-plus"></i><i class="icon-shopping-bag"></i></a>
+                    <?php } ?>
                 </form><!-- Product Single - Quantity & Cart Button End -->
 
                 <div class="clear"></div>

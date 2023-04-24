@@ -71,12 +71,12 @@ $level = $session->get('level'); ?>
                             </div>
                             <?php if ($result['disc_package'] != 0) {?>
                             <div class="product-price">
-                                <del>Rp <?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
-                                <ins>Rp <?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
+                                <del>Rp<?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
+                                <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins>
                             </div>
                             <?php } else { ?>
-                            <div class="product-price"><ins>Rp
-                                    <?= number_format($result['price_last_package'], 0, ",", "."); ?></ins></div>
+                            <div class="product-price">
+                                <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></ins></div>
                             <?php } ?>
                             <p class="mt-3 d-none d-lg-block">
                                 <?= $result['desc_package']; ?><br><?= $result['note_package']; ?></p>

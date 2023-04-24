@@ -68,8 +68,8 @@ $level = $session->get('level'); ?>
                             </div>
                             <?php if ($result['disc_package'] != 0) {?>
                             <div class="product-price">
-                                <del>Rp <?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
-                                <ins>Rp <?= number_format($result['price_last_package'], 0, ",", "."); ?> (Diskon
+                                <del>Rp<?= number_format($result['price_init_package'], 0, ",", "."); ?></del>
+                                <ins>Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?> (Diskon
                                     <?= $result['disc_package']; ?>%)</ins>
                             </div>
                             <?php } else { ?>

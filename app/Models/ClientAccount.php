@@ -18,4 +18,15 @@ class ClientAccount extends Model
         'image_client',
         'create_client',
     ];
+    public function clientDetail($id)
+    {
+        $db = db_connect();
+        $builder = $db->table('clientaccount c');
+        $builder->select('*')
+                ->where('c.id_client =', "$id")
+                ->limit(1);
+        $query = $builder->get();
+        $package = $query->getResultArray();
+        return $package[0];
+    }
 }

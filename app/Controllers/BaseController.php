@@ -16,6 +16,8 @@ use App\Models\Video;
 use App\Models\Package;
 use App\Models\DetailPackage;
 use App\Models\ClientAccount;
+use App\Models\ClientChart;
+use App\Models\Booking;
 
 /**
  * Class BaseController
@@ -58,6 +60,8 @@ abstract class BaseController extends Controller
     protected $package;
     protected $detailpackage;
     protected $clientaccount;
+    protected $clientchart;
+    protected $booking;
 
     /**
      * Constructor.
@@ -75,6 +79,8 @@ abstract class BaseController extends Controller
         $this->package = new Package();
         $this->detailpackage = new DetailPackage();
         $this->client = new ClientAccount();
+        $this->chart = new ClientChart();
+        $this->booking = new Booking();
         $this->session = \Config\Services::session();
         // E.g.: $this->session = \Config\Services::session();
     }

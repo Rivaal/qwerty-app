@@ -43,6 +43,14 @@ $routes->get('caratransaksi/', 'PageUser::caratransaksi');
 $routes->get('login', 'Auth::loginclient');
 $routes->post('logins', 'Auth::logincheckclient');
 $routes->get('logout', 'Auth::logoutclient');
+$routes->get('keranjang', 'PageUser::keranjangasaya');
+$routes->get('tambahkeranjang(:any)', 'PageUser::tambahkeranjang::$1');
+$routes->get('hapuskeranjang(:any)', 'PageUser::hapuskeranjang::$1');
+$routes->get('hapusbooking(:any)', 'PageUser::hapusbooking::$1');
+$routes->get('booking(:any)', 'PageUser::booking::$1');
+$routes->get('listbooking', 'PageUser::listbooking');
+$routes->post('prosesbooking(:any)', 'PageUser::prosesbooking::$1');
+$routes->get('infopembayaran(:any)', 'PageUser::infopembayaran::$1');
 $routes->get('hubungikami/', 'PageUser::hubungikami');
 
 /*

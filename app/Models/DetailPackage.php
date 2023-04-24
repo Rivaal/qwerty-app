@@ -21,7 +21,6 @@ class DetailPackage extends Model
         'printout_dp',
         'create_dp',
     ];
-
     public function singleDetail($id)
     {
         $db = db_connect();
@@ -34,7 +33,6 @@ class DetailPackage extends Model
         $package = $query->getResultArray();
         return $package[0];
     }
-
     public function otherPackage($id)
     {
         $db = db_connect();
