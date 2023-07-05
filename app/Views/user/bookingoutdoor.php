@@ -135,15 +135,15 @@ $level = $session->get('level'); ?>
                             <tbody>
                                 <tr class="cart_item">
                                     <td class="cart-product-thumbnail">
-                                        <a href="../singledetail/<?= $package['id_package'] ?>"><img width="64"
-                                                height="64"
-                                                src="../assets/userimg/package/<?= $package['image_package'] ?>"
+                                        <a href="<?= base_url(); ?>/singledetail/<?= $package['id_package'] ?>"><img
+                                                width="64" height="64"
+                                                src="<?= base_url(); ?>/assets/userimg/package/<?= $package['image_package'] ?>"
                                                 alt="Pink Printed Dress"></a>
                                     </td>
 
                                     <td class="cart-product-name">
                                         <a
-                                            href="../singledetail/<?= $package['id_package'] ?>"><?= $package['title_package'] ?></a>
+                                            href="<?= base_url(); ?>/singledetail/<?= $package['id_package'] ?>"><?= $package['title_package'] ?></a>
                                     </td>
 
                                     <td class="cart-product-quantity">
@@ -328,7 +328,7 @@ $('#button-proses').click(function(e) {
     } else {
         $.ajax({
             type: "POST",
-            url: "../prosesbooking/OUT",
+            url: "<?= base_url(); ?>/prosesbooking/OUT",
             data: {
                 id_cart: cart,
                 tanggal_sesi: tgl,
@@ -342,7 +342,7 @@ $('#button-proses').click(function(e) {
                 $('#button-proses').text('Membuat...')
             },
             success: function(response) {
-                window.location.replace("../infopembayaran/" + response.success);
+                window.location.replace("<?= base_url(); ?>/infopembayaran/" + response.success);
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + "\n" + xhr.responseText + "\n" +

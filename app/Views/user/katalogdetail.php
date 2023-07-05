@@ -38,7 +38,6 @@ $level = $session->get('level'); ?>
 <section id="content">
     <div class="content-wrap">
         <div class="container clearfix">
-
             <!-- Shop
 					============================================= -->
             <div id="shop" class="shop row grid-container gutter-30" data-layout="fitRows">
@@ -47,16 +46,16 @@ $level = $session->get('level'); ?>
                 <div class="product col-12 col-sm-6 col-lg-12">
                     <div class="grid-inner row g-0">
                         <div class="product-image col-lg-4 col-xl-3">
-                            <a href="../singledetail/<?= $result['id_package']; ?>"><img
-                                    src="../assets/userimg/package/<?= $result['image_package']; ?>"
+                            <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><img
+                                    src="<?= base_url(); ?>/assets/userimg/package/<?= $result['image_package']; ?>"
                                     alt="<?= $result['title_package']; ?>"></a>
                             <div class="bg-overlay">
                                 <div class="bg-overlay-content align-items-end justify-content-between"
                                     data-hover-animate="fadeIn" data-hover-speed="400">
-                                    <a href="../singledetail/<?= $result['id_package']; ?>" class="btn btn-dark me-2"><i
-                                            class="icon-shopping-cart"></i></a>
-                                    <a href="../packagedetail/<?= $result['id_package']; ?>" class="btn btn-dark"
-                                        data-lightbox="ajax"><i class="icon-line-expand"></i></a>
+                                    <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"
+                                        class="btn btn-dark me-2"><i class="icon-shopping-cart"></i></a>
+                                    <a href="<?= base_url(); ?>/packagedetail/<?= $result['id_package']; ?>"
+                                        class="btn btn-dark" data-lightbox="ajax"><i class="icon-line-expand"></i></a>
                                 </div>
                                 <div class="bg-overlay-bg bg-transparent"></div>
                             </div>
@@ -67,7 +66,7 @@ $level = $session->get('level'); ?>
                         <div class="product-desc col-lg-8 col-xl-9 px-lg-5 pt-lg-0">
                             <div class="product-title">
                                 <h3><a
-                                        href="../singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']; ?></a>
+                                        href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']; ?></a>
                                 </h3>
                             </div>
                             <?php if ($result['disc_package'] != 0) {?>
@@ -85,10 +84,8 @@ $level = $session->get('level'); ?>
                         </div>
                     </div>
                 </div>
-
                 <?php endforeach; ?>
             </div><!-- #shop end -->
-
         </div>
     </div>
 </section><!-- #content end -->
@@ -101,7 +98,7 @@ $level = $session->get('level'); ?>
 function search() {
     var text = $('#widget-subscribe-form-email').val();
     if (text != "") {
-        window.location.replace("../katalogsearch/" + text);
+        window.location.replace("<?= base_url(); ?>/katalogsearch/" + text);
     }
 }
 </script>

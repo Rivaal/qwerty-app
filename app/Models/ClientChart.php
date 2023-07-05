@@ -46,7 +46,7 @@ class ClientChart extends Model
     {
         $db = db_connect();
         $builder = $db->table('clientchart c');
-        $builder->select('c.id_package, p.title_package, p.price_last_package, p.image_package, p.type_package')
+        $builder->select('c.id_package, p.title_package, p.price_last_package, p.image_package, p.type_package, p.disc_package, p.price_init_package')
                 ->join('package p', 'p.id_package = c.id_package')
                 ->where('c.id_client', "$idclient")
                 ->orderBy('c.id_chart', 'DESC');

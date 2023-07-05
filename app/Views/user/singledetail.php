@@ -51,22 +51,22 @@ $level = $session->get('level'); ?>
                                     <div class="flexslider">
                                         <div class="slider-wrap" data-lightbox="gallery">
                                             <div class="slide"
-                                                data-thumb="../assets/userimg/package/<?= $package['image_package']; ?>">
-                                                <a href="../assets/userimg/package/<?= $package['image_package']; ?>"
+                                                data-thumb="<?= base_url(); ?>/assets/userimg/package/<?= $package['image_package']; ?>">
+                                                <a href="<?= base_url(); ?>/assets/userimg/package/<?= $package['image_package']; ?>"
                                                     title="Pink Printed Dress - Front View"
                                                     data-lightbox="gallery-item"><img
-                                                        src="../assets/userimg/package/<?= $package['image_package']; ?>"
+                                                        src="<?= base_url(); ?>/assets/userimg/package/<?= $package['image_package']; ?>"
                                                         alt="Pink Printed Dress"></a>
                                             </div>
                                             <?php
                                                 if ($package['image1_dp'] != "") :
                                                     ?>
                                             <div class="slide"
-                                                data-thumb="../assets/userimg/detailpackage/<?= $package['image1_dp']; ?>">
-                                                <a href="../assets/userimg/detailpackage/<?= $package['image1_dp']; ?>"
+                                                data-thumb="<?= base_url(); ?>/assets/userimg/detailpackage/<?= $package['image1_dp']; ?>">
+                                                <a href="<?= base_url(); ?>/assets/userimg/detailpackage/<?= $package['image1_dp']; ?>"
                                                     title="Pink Printed Dress - Side View"
                                                     data-lightbox="gallery-item"><img
-                                                        src="../assets/userimg/detailpackage/<?= $package['image1_dp']; ?>"
+                                                        src="<?= base_url(); ?>/assets/userimg/detailpackage/<?= $package['image1_dp']; ?>"
                                                         alt="Pink Printed Dress"></a>
                                             </div>
                                             <?php endif; ?>
@@ -74,11 +74,11 @@ $level = $session->get('level'); ?>
                                                 if ($package['image2_dp'] != "") :
                                                     ?>
                                             <div class="slide"
-                                                data-thumb="../assets/userimg/detailpackage/<?= $package['image2_dp']; ?>">
-                                                <a href="../assets/userimg/detailpackage/<?= $package['image2_dp']; ?>"
+                                                data-thumb="<?= base_url(); ?>/assets/userimg/detailpackage/<?= $package['image2_dp']; ?>">
+                                                <a href="<?= base_url(); ?>/assets/userimg/detailpackage/<?= $package['image2_dp']; ?>"
                                                     title="Pink Printed Dress - Back View"
                                                     data-lightbox="gallery-item"><img
-                                                        src="../assets/userimg/detailpackage/<?= $package['image2_dp']; ?>"
+                                                        src="<?= base_url(); ?>/assets/userimg/detailpackage/<?= $package['image2_dp']; ?>"
                                                         alt="Pink Printed Dress"></a>
                                             </div>
                                             <?php endif; ?>
@@ -129,14 +129,14 @@ $level = $session->get('level'); ?>
                             <div class="cart mb-0 d-flex justify-content-between align-items-center"
                                 enctype='multipart/div-data'>
                                 <div class=" quantity clearfix">
-                                    <a href="../booking/<?= $package['id_package']; ?>"
+                                    <a href="<?= base_url(); ?>/booking/<?= $package['id_package']; ?>"
                                         class="add-to-cart button button-border button-blue">BOOKING</a>
                                 </div>
                                 <?php if ($cart == true) {?>
                                 <button type="button" class="add-to-cart button m-0" disabled>
                                     <i class="icon-check"></i><i class="icon-shopping-bag"></i></button>
                                 <?php } else {?>
-                                <a href="../tambahkeranjang/<?= $package['id_package']; ?>"
+                                <a href="<?= base_url(); ?>/tambahkeranjang/<?= $package['id_package']; ?>"
                                     class="add-to-cart button m-0">
                                     <i class="icon-plus"></i><i class="icon-shopping-bag"></i></a>
                                 <?php } ?>
@@ -287,7 +287,8 @@ $level = $session->get('level'); ?>
                                                         <div class="comment-meta">
                                                             <div class="comment-author vcard">
                                                                 <span class="comment-avatar clearfix">
-                                                                    <img alt='Image' src='../images/icons/avatar.jpg'
+                                                                    <img alt='Image'
+                                                                        src='<?= base_url(); ?>/images/icons/avatar.jpg'
                                                                         height='60' width='60' /></span>
                                                             </div>
                                                         </div>
@@ -322,7 +323,8 @@ $level = $session->get('level'); ?>
                                                         <div class="comment-meta">
                                                             <div class="comment-author vcard">
                                                                 <span class="comment-avatar clearfix">
-                                                                    <img alt='Image' src='../images/icons/avatar.jpg'
+                                                                    <img alt='Image'
+                                                                        src='<?= base_url(); ?>/images/icons/avatar.jpg'
                                                                         height='60' width='60' /></span>
                                                             </div>
                                                         </div>
@@ -470,16 +472,17 @@ $level = $session->get('level'); ?>
                     <div class="oc-item">
                         <div class="product">
                             <div class="product-image">
-                                <a href="../singledetail/<?= $result['id_package']; ?>"><img
-                                        src="../assets/userimg/package/<?= $result['image_package']; ?>"
+                                <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><img
+                                        src="<?= base_url(); ?>/assets/userimg/package/<?= $result['image_package']; ?>"
                                         alt="<?= $result['title_package']; ?>"></a>
                                 <div class="bg-overlay">
                                     <div class="bg-overlay-content align-items-end justify-content-between"
                                         data-hover-animate="fadeIn" data-hover-speed="400">
-                                        <a href="../singledetail/<?= $result['id_package']; ?>"
+                                        <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"
                                             class="btn btn-dark me-2"><i class="icon-shopping-cart"></i></a>
-                                        <a href="../packagedetail/<?= $result['id_package']; ?>" class="btn btn-dark"
-                                            data-lightbox="ajax"><i class="icon-line-expand"></i></a>
+                                        <a href="<?= base_url(); ?>/packagedetail/<?= $result['id_package']; ?>"
+                                            class="btn btn-dark" data-lightbox="ajax"><i
+                                                class="icon-line-expand"></i></a>
                                     </div>
                                     <div class="bg-overlay-bg bg-transparent"></div>
                                 </div>
@@ -490,7 +493,7 @@ $level = $session->get('level'); ?>
                             <div class="product-desc center">
                                 <div class="product-title">
                                     <h3>
-                                        <a href="../singledetail/<?= $result['id_package']; ?>">
+                                        <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>">
                                             <?= $result['title_package']; ?></a>
                                     </h3>
                                 </div>
@@ -531,7 +534,7 @@ $level = $session->get('level'); ?>
 function search() {
     var text = $('#widget-subscribe-form-email').val();
     if (text != "") {
-        window.location.replace("../katalogsearch/" + text);
+        window.location.replace("<?= base_url(); ?>/katalogsearch/" + text);
     }
 }
 </script>

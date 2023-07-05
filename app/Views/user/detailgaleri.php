@@ -46,7 +46,7 @@ $level = $session->get('level'); ?>
                                         data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall"
                                         data-hover-speed="350" data-lightbox="image"
                                         title="<?= $gallery['title_gallery']; ?>"><i class="icon-search"></i></a>
-                                    <a href="../detailfoto/<?= $gallery['id_gallery']; ?>"
+                                    <a href="<?= base_url(); ?>/detailfoto/<?= $gallery['id_gallery']; ?>"
                                         class="overlay-trigger-icon bg-light text-dark"
                                         data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall"
                                         data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
@@ -59,7 +59,7 @@ $level = $session->get('level'); ?>
                         <!-- Decription: Start -->
                         <div class="portfolio-desc">
                             <h3><a
-                                    href="../detailfoto/<?= $gallery['id_gallery']; ?>"><?= $gallery['title_gallery']; ?></a>
+                                    href="<?= base_url(); ?>/detailfoto/<?= $gallery['id_gallery']; ?>"><?= $gallery['title_gallery']; ?></a>
                             </h3>
                         </div>
                         <!-- Description: End -->

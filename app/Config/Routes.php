@@ -43,6 +43,7 @@ $routes->get('caratransaksi/', 'PageUser::caratransaksi');
 $routes->get('login', 'Auth::loginclient');
 $routes->post('logins', 'Auth::logincheckclient');
 $routes->get('logout', 'Auth::logoutclient');
+$routes->get('logouts', 'Auth::logoutadmin');
 $routes->get('keranjang', 'PageUser::keranjangasaya');
 $routes->get('tambahkeranjang(:any)', 'PageUser::tambahkeranjang::$1');
 $routes->get('hapuskeranjang(:any)', 'PageUser::hapuskeranjang::$1');
@@ -51,12 +52,50 @@ $routes->get('booking(:any)', 'PageUser::booking::$1');
 $routes->get('listbooking', 'PageUser::listbooking');
 $routes->post('prosesbooking(:any)', 'PageUser::prosesbooking::$1');
 $routes->get('infopembayaran(:any)', 'PageUser::infopembayaran::$1');
+$routes->get('infopelunasan(:any)', 'PageUser::infopelunasan::$1');
 $routes->get('konfirmasipembayaran(:any)', 'PageUser::konfirmasipembayaran::$1');
 $routes->get('bayarpesanan(:any)', 'PageUser::bayarpesanan::$1');
+$routes->get('bayarpelunasan(:any)', 'PageUser::bayarpelunasan::$1');
 $routes->get('konfirmpembayaran(:any)', 'PageUser::konfirmpembayaran::$1');
+$routes->get('konfirmpelunasan(:any)', 'PageUser::konfirmpelunasan::$1');
 $routes->post('acceptbukti(:any)', 'PageUser::acceptbukti::$1');
+$routes->post('acceptpelunasan(:any)', 'PageUser::acceptpelunasan::$1');
 $routes->get('verifikasi(:any)', 'PageUser::verifikasi::$1');
 $routes->get('hubungikami/', 'PageUser::hubungikami');
+
+$routes->get('Auth', 'Auth::loginadmin');
+$routes->post('Auth/loginadmin', 'Auth::logincheckadmin');
+$routes->get('Admin/', 'PageAdmin::dashboardRingkasanPesanan');
+$routes->get('Admin/statistikPendapatan', 'PageAdmin::dashboardStatistikPendapatan');
+$routes->get('Admin/jadwalKetersediaanStudio', 'PageAdmin::dashboardJadwalKetersediaanStudio');
+$routes->get('Admin/daftarPesanan', 'PageAdmin::pesananDaftarPesanan');
+$routes->get('Admin/daftarKatalog', 'PageAdmin::katalogDaftarKatalog');
+$routes->get('Admin/daftarKaryawan', 'PageAdmin::karyawanDaftarKaryawan');
+$routes->get('Admin/daftarClient', 'PageAdmin::clientDaftarClient');
+$routes->get('Admin/lihatJadwal', 'PageAdmin::kalenderLihatJadwal');
+$routes->get('Admin/income', 'PageAdmin::Income');
+$routes->get('Admin/outcome', 'PageAdmin::Outcome');
+$routes->get('Admin/ringkasanKeuangan', 'PageAdmin::laporanRingkasanKeuangan');
+$routes->get('Admin/pengaturanAkun', 'PageAdmin::pengaturanPengaturanAkun');
+
+$routes->post('simpanUangMasuk', 'PageAdmin::saveIncome');
+$routes->post('updateUangMasuk', 'PageAdmin::updateIncome');
+$routes->get('deleteUangMasuk(:any)', 'PageAdmin::deleteIncome$1');
+
+$routes->post('simpanUangKeluar', 'PageAdmin::saveOutcome');
+$routes->post('updateUangKeluar', 'PageAdmin::updateOutcome');
+$routes->get('deleteUangKeluar(:any)', 'PageAdmin::deleteOutcome$1');
+
+$routes->get('/Datatables/(:any)', 'Datatables::$1');
+
+$routes->get('sendWhatsappVerification', 'Auth::forgotPasswordClient');
+$routes->post('sendOTP', 'Auth::sendOTP');
+$routes->post('verifOTP', 'Auth::verifOTP');
+$routes->post('confirmPasswordChange', 'Auth::confirmPasswordChange');
+$routes->post('registrationUser', 'Auth::registrationUser');
+$routes->post('registrationVerifOTP', 'Auth::registrationVerifOTP');
+
+
 
 /*
  * --------------------------------------------------------------------

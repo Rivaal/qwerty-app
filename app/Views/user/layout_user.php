@@ -56,10 +56,10 @@
                         <!-- Logo
 						============================================= -->
                         <div id="logo">
-                            <a href="" class="standard-logo"><img src="<?= base_url(); ?>/assets/userimg/logo.png"
-                                    alt="Canvas Logo"></a>
-                            <a href="" class="retina-logo"> <img src="<?= base_url(); ?>/assets/userimg/logo.png"
-                                    alt="Canvas Logo"></a>
+                            <a href="" class="standard-logo"><img src="<?= base_url(); ?>/assets/userimg/logotrue.png"
+                                    alt="Canvas true"></a>
+                            <a href="" class="retina-logo"> <img src="<?= base_url(); ?>/assets/userimg/logotrue.png"
+                                    alt="Canvastrue Logo"></a>
                         </div><!-- #logo end -->
 
                         <div class="header-misc align-items-lg-stretch">
@@ -83,14 +83,14 @@
                                     <div class="top-cart-items">
                                         <div class="top-cart-item">
                                             <div class="top-cart-item-image">
-                                                <a href="../singledetail/<?= $result['id_package']; ?>"><img
+                                                <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><img
                                                         src="<?= base_url(); ?>assets/userimg/package/<?= $result['image_package'] ?>"
                                                         alt="<?= $result['title_package']?>" /></a>
                                             </div>
                                             <div class="top-cart-item-desc">
                                                 <div class="top-cart-item-desc-title">
                                                     <a
-                                                        href="../singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']?></a>
+                                                        href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']?></a>
                                                     <span
                                                         class="top-cart-item-price d-block">Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></span>
                                                 </div>
@@ -101,7 +101,8 @@
                                     <div class="top-cart-action">
                                         <span class="top-checkout-price">Rp
                                             <?= number_format($total, 0, ",", "."); ?></span>
-                                        <a href="../keranjang" class="button button-3d button-small m-0">Detail</a>
+                                        <a href="<?= base_url(); ?>/keranjang"
+                                            class="button button-3d button-small m-0">Detail</a>
                                     </div>
                                 </div>
                             </div><!-- #top-cart end -->
@@ -118,7 +119,7 @@
                                         <?php endif;  ?></i></a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu1">
                                     <a class="dropdown-item text-start" href="#">Akun</a>
-                                    <a class="dropdown-item text-start" href="../listbooking">Pesanan
+                                    <a class="dropdown-item text-start" href="<?= base_url(); ?>/listbooking">Pesanan
                                         <?php if ($countbooking != 0) :?>
                                         <span class="badge rounded-pill bg-secondary float-end"
                                             style="margin-top: 3px;"><?= $countbooking ?></span>
@@ -126,11 +127,11 @@
                                     </a>
                                     <a class="dropdown-item text-start" href="#">Pengaturan</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-start" href="../logout">Keluar <i
+                                    <a class="dropdown-item text-start" href="<?= base_url(); ?>/logout">Keluar <i
                                             class="icon-signout"></i></a>
                                 </ul>
                                 <?php } else { ?>
-                                <a href="../login"><i class="icon-line2-user"></i></a>
+                                <a href="<?= base_url(); ?>/login"><i class="icon-line2-user"></i></a>
                                 <?php } ?>
                             </div>
                         </div>

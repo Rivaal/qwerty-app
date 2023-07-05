@@ -44,7 +44,9 @@ $level = $session->get('level'); ?>
                 <div class="col-md-6">
                     <h3>Konfirmasi Pembayaran</h3>
 
-                    <p>Silahkan isi form data yang disediakan dibawah.</p>
+                    <p>Silahkan isi form data yang disediakan dibawah, Apabila Anda melakukan pembayaran sebanyak 2 kali
+                        (DP dan pelunasan), silakan pilih jenis pembayaran DP terlebih dahulu, kemudian di halaman
+                        selanjutnya isi form untuk membayar sisa pelunasan.</p>
 
                     <form id="formKonfirm" enctype="multipart/form-data" class="row mb-0" action="#" method="post">
 
@@ -54,10 +56,10 @@ $level = $session->get('level'); ?>
                         </div>
 
                         <div class="col-12 form-group">
-                            <label for="total-bayar">Total Bayar:</label>
+                            <label for="total-bayar">Jenis Pembayaran:</label>
                             <select id="total-bayar" name="total-bayar" class="sm-form-control form-select"
                                 id="exampleFormControlSelect1" required>
-                                <option value="lunas" selected>LUNAS
+                                <option value="lunas">LUNAS
                                 </option>
                                 <option value="dp">DP (50%)</option>
                             </select>
@@ -73,10 +75,10 @@ $level = $session->get('level'); ?>
                             <label for="metode-pembayaran">Metode Pembayaran:</label>
                             <select id="metode-pembayaran" name="metode-pembayaran" class="sm-form-control form-select"
                                 id="exampleFormControlSelect1" required>
-                                <option value="gopay" selected>GOPAY</option>
-                                <option value="dana">DANA</option>
-                                <option value="bni">BNI</option>
-                                <option value="bri">BRI</option>
+                                <option value="GoPay" selected>GOPAY</option>
+                                <option value="Dana">DANA</option>
+                                <option value="Bank BNI">BNI</option>
+                                <option value="Bank BRI">BRI</option>
                             </select>
                         </div>
 
@@ -113,15 +115,15 @@ $level = $session->get('level'); ?>
                             <tbody>
                                 <tr class="cart_item">
                                     <td class="cart-product-thumbnail">
-                                        <a href="../singledetail/<?= $booking['id_package'] ?>"><img width="64"
-                                                height="64"
-                                                src="../assets/userimg/package/<?= $booking['image_package'] ?>"
+                                        <a href="<?= base_url(); ?>/singledetail/<?= $booking['id_package'] ?>"><img
+                                                width="64" height="64"
+                                                src="<?= base_url(); ?>/assets/userimg/package/<?= $booking['image_package'] ?>"
                                                 alt="Pink Printed Dress"></a>
                                     </td>
 
                                     <td class="cart-product-name">
                                         <a
-                                            href="../singledetail/<?= $booking['id_package'] ?>"><?= $booking['title_package'] ?></a>
+                                            href="<?= base_url(); ?>/singledetail/<?= $booking['id_package'] ?>"><?= $booking['title_package'] ?></a>
                                     </td>
 
                                     <td class="cart-product-quantity">
@@ -218,7 +220,7 @@ $level = $session->get('level'); ?>
                         <div class="col-md-6"><button id="bayar-pesanan"
                                 class="button button-large w-100 m-0 button-dirtygreen"
                                 onclick="bayar('<?= $booking['id_booking']; ?>');"><i class="icon-line-arrow-left"></i>
-                                Bayar Pesanan</button>
+                                Cara Pembayaran</button>
                         </div>
                         <div class="col-md-6"><button id="kirim-bukti" class="button button-large w-100 m-0 button-blue"
                                 onclick="confirm('<?= $booking['id_booking']; ?>');" disabled>Kirim Bukti
@@ -278,10 +280,10 @@ $('#bukti-transaksi').on('change', function() {
 });
 
 function checkEnable() {
-    var total_bayar = $('#total_bayar').val();
+    var total_bayar = $('#total-bayar').val();
     if (total_bayar == "lunas") {
         $('#nominal-bayar').val('<?= $lunas ?>');
-    } else {
+    } else if (total_bayar == "dp") {
         $('#nominal-bayar').val('<?= $dp ?>');
     }
     var nominal_bayar = $('#nominal-bayar').val();
@@ -298,7 +300,7 @@ function checkEnable() {
 function bayar(idbooking) {
     $.ajax({
         type: "get",
-        url: "../bayarpesanan/" + idbooking,
+        url: "<?= base_url(); ?>/bayarpesanan/" + idbooking,
         data: "",
         dataType: "json",
         beforeSend: function(xhr) {
@@ -306,7 +308,7 @@ function bayar(idbooking) {
             $('#bayar-pesanan').text('Loading...')
         },
         success: function(response) {
-            window.location.replace("../infopembayaran/" + response.success);
+            window.location.replace("<?= base_url(); ?>/infopembayaran/" + response.success);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + "\n" + xhr.responseText + "\n" +
@@ -318,7 +320,7 @@ function bayar(idbooking) {
 function confirm() {
     var formData = new FormData($('#formKonfirm')[0]);
     $.ajax({
-        url: '../acceptbukti/<?= $booking['id_booking'] ?>',
+        url: '<?= base_url(); ?>/acceptbukti/<?= $booking['id_booking'] ?>',
         type: 'POST',
         data: formData,
         processData: false,
@@ -328,7 +330,7 @@ function confirm() {
             $('#kirim-bukti').text('Loading...')
         },
         success: function(data) {
-            window.location.replace("../verifikasi/<?= $booking['id_booking']?>");
+            window.location.replace("<?= base_url(); ?>/verifikasi/<?= $booking['id_booking']?>");
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + "\n" + xhr.responseText + "\n" +

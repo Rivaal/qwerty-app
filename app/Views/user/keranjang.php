@@ -30,7 +30,9 @@ $level = $session->get('level'); ?>
                         <th class="cart-product-thumbnail">&nbsp;</th>
                         <th class="cart-product-name">Katalog</th>
                         <th class="cart-product-name">Tipe</th>
-                        <th class="cart-product-price">Biaya</th>
+                        <th class="cart-product-name">Harga</th>
+                        <th class="cart-product-price">Diskon</th>
+                        <th class="cart-product-price">Total</th>
                         <th class="cart-product-subtotal">&nbsp;</th>
                     </tr>
                 </thead>
@@ -39,41 +41,51 @@ $level = $session->get('level'); ?>
 foreach ($chart as $result) : $totalx = $totalx + $result['price_last_package']; ?>
                     <tr class="cart_item">
                         <td class="cart-product-remove">
-                            <a href="../hapuskeranjang/<?= $result['id_package']; ?>" class="remove"
+                            <a href="<?= base_url(); ?>/hapuskeranjang/<?= $result['id_package']; ?>" class="remove"
                                 title="Remove this item"><i class="icon-trash2"></i></a>
                         </td>
 
                         <td class="cart-product-thumbnail">
-                            <a href="../singledetail/<?= $result['id_package']; ?>"><img width="64" height="64"
-                                    src="assets/userimg/package/<?= $result['image_package']; ?>"
+                            <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><img width="64"
+                                    height="64" src="assets/userimg/package/<?= $result['image_package']; ?>"
                                     alt="Pink Printed Dress"></a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a href="../singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']; ?></a>
+                            <a
+                                href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']; ?></a>
                         </td>
 
-                        <td class="cart-product-name">
+                        <td class="cart-product-price">
                             <span class="amount"><?php if ($result['type_package'] == "IND") {
-                                echo "Indoor";
+                                echo "Paket Indoor";
                             } else {
-                                echo "Outdoor";
+                                echo "Paket Outdoor";
                             } ?></span>
                         </td>
 
                         <td class="cart-product-price">
                             <span
-                                class="amount">Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></span>
+                                class="amount">Rp<?= number_format($result['price_init_package'], 0, ",", "."); ?></span>
                         </td>
 
+                        <td class="cart-product-price">
+                            <span class="amount"><?= $result['disc_package']; ?>%</span>
+                        </td>
+
+                        <td class="cart-product-name">
+                            <span
+                                class="amount">Rp<?= number_format($result['price_last_package'], 0, ",", "."); ?></span>
+                        </td>
                         <td class="cart-product-quantity">
-                            <a href="../booking/<?= $result['id_package']; ?>" class="button w-100 button-blue">BUAT
+                            <a href="<?= base_url(); ?>/booking/<?= $result['id_package']; ?>"
+                                class="button w-100 button-blue">BUAT
                                 PESANAN</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                     <tr class="cart_item">
-                        <td colspan="6">
+                        <td colspan="8">
                             <div class="row justify-content-between py-2 col-mb-30">
                                 <div class="col-lg-auto ps-lg-0">
                                     <div class="row">
@@ -100,7 +112,7 @@ foreach ($chart as $result) : $totalx = $totalx + $result['price_last_package'];
 function search() {
     var text = $('#widget-subscribe-form-email').val();
     if (text != "") {
-        window.location.replace("../katalogsearch/" + text);
+        window.location.replace("<?= base_url(); ?>/katalogsearch/" + text);
     }
 }
 </script>

@@ -10,7 +10,7 @@ $level = $session->get('level'); ?>
     <div class="container clearfix">
         <h1><?= $photo_name ?></h1>
         <div id="portfolio-navigation">
-            <a href="../galeri"><i class="icon-line-grid"></i></a>
+            <a href="<?= base_url(); ?>/galeri"><i class="icon-line-grid"></i></a>
         </div>
     </div>
 
@@ -26,7 +26,8 @@ $level = $session->get('level'); ?>
                 <!-- Portfolio Single Image
 						============================================= -->
                 <div class="col-lg-8 portfolio-single-image">
-                    <a><img src="../assets/userimg/cover/<?= $detail['cover_gallery']; ?>" alt="Image"></a>
+                    <a><img src="<?= base_url(); ?>/assets/userimg/cover/<?= $detail['cover_gallery']; ?>"
+                            alt="Image"></a>
                 </div><!-- .portfolio-single-image end -->
 
                 <!-- Portfolio Single Content
@@ -109,12 +110,12 @@ $level = $session->get('level'); ?>
                     <div class="portfolio-item">
                         <div class="portfolio-image">
                             <a href="portfolio-single.html">
-                                <img src="../assets/userimg/cover/<?= $related['cover_gallery']; ?>"
+                                <img src="<?= base_url(); ?>/assets/userimg/cover/<?= $related['cover_gallery']; ?>"
                                     alt="Open Imagination">
                             </a>
                             <div class="bg-overlay">
                                 <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-speed="350">
-                                    <a href="../detailfoto/<?= $related['id_gallery'] ?>"
+                                    <a href="<?= base_url(); ?>/detailfoto/<?= $related['id_gallery'] ?>"
                                         class="overlay-trigger-icon bg-light text-dark"
                                         data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeInUpSmall"
                                         data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
@@ -125,7 +126,7 @@ $level = $session->get('level'); ?>
                         </div>
                         <div class="portfolio-desc">
                             <h3><a
-                                    href="../detailfoto/<?= $related['id_gallery'] ?>"><?= $related['title_gallery'] ?></a>
+                                    href="<?= base_url(); ?>/detailfoto/<?= $related['id_gallery'] ?>"><?= $related['title_gallery'] ?></a>
                             </h3>
                         </div>
                     </div>

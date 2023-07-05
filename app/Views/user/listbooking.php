@@ -62,20 +62,21 @@ $level = $session->get('level'); ?>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Batal</button>
-                                        <a href="../hapusbooking/<?= $result['id_booking']; ?>"
+                                        <a href="<?= base_url(); ?>/hapusbooking/<?= $result['id_booking']; ?>"
                                             class="btn btn-danger">Hapus Pesanan</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <td class="cart-product-thumbnail">
-                            <a href="../singledetail/<?= $result['id_package']; ?>"><img width="64" height="64"
-                                    src="assets/userimg/package/<?= $result['image_package']; ?>"
+                            <a href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><img width="64"
+                                    height="64" src="assets/userimg/package/<?= $result['image_package']; ?>"
                                     alt="Pink Printed Dress"></a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a href="../singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']; ?></a>
+                            <a
+                                href="<?= base_url(); ?>/singledetail/<?= $result['id_package']; ?>"><?= $result['title_package']; ?></a>
                         </td>
 
                         <td class="cart-product-name">
@@ -92,14 +93,26 @@ $level = $session->get('level'); ?>
 
                         <td class="cart-product-quantity">
                             <?php if ($result['status'] == "Belum dibayar") {?>
-                            <a href="../infopembayaran/<?= $result['id_booking']; ?>"
-                                class="button w-100 button-blue">Bayar</a>
-                            <?php } elseif ($result['status'] == "Menunggu Konfirmasi") {?>
-                            <a href="../konfirmpembayaran/<?= $result['id_booking']; ?>"
-                                class="button w-100 button-dirtygreen">Konfirmasi</a>
-                            <?php } elseif ($result['status'] == "Menunggu Verifikasi") {?>
-                            <a href="../verifikasi/<?= $result['id_booking']; ?>"
-                                class="button w-100 button-brown">Detail</a>
+                            <div class="col-md-12"><a
+                                    href="<?= base_url(); ?>/infopembayaran/<?= $result['id_booking']; ?>"
+                                    class="button w-100 button-red">Bayar</a></div>
+                            <?php } elseif ($result['status'] == "LUNAS<br>Menunggu Verifikasi") {?>
+                            <div class="row col-mb-12 form-group">
+                                <div class="col-md-12">
+                                    <a href="<?= base_url(); ?>/verifikasi/<?= $result['id_booking']; ?>"
+                                        class="button w-100 button-brown">Detail</a>
+                                </div>
+                            </div><?php } elseif ($result['status'] == "DP<br>Menunggu Verifikasi") {?>
+                            <div class="row col-mb-12 form-group">
+                                <div class="col-md-6">
+                                    <a href="<?= base_url(); ?>/konfirmpelunasan/<?= $result['id_booking']; ?>"
+                                        class="button w-100 button-blue">Bayar Sisa</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="<?= base_url(); ?>/verifikasi/<?= $result['id_booking']; ?>"
+                                        class="button w-100 button-brown">Detail</a>
+                                </div>
+                            </div>
                             <?php } ?>
                         </td>
                     </tr>
@@ -118,7 +131,7 @@ $level = $session->get('level'); ?>
 function search() {
     var text = $('#widget-subscribe-form-email').val();
     if (text != "") {
-        window.location.replace("../katalogsearch/" + text);
+        window.location.replace("<?= base_url(); ?>/katalogsearch/" + text);
     }
 }
 </script>

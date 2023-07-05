@@ -215,7 +215,11 @@ class PageUser extends BaseController
         }
         $newName = "$idbooking" . '.' . 'png';
         $file_name = $newName;
-        $file_path = "./assets/userimg/bukti/" . $file_name;
+        $file_path = FCPATH . "assets/userimg/bukti/" . $file_name;
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+        $file_path = FCPATH . "assets/userimg/pelunasan/" . $file_name;
         if (file_exists($file_path)) {
             unlink($file_path);
         }
@@ -356,10 +360,45 @@ class PageUser extends BaseController
             return redirect()->to('login');
         }
     }
+    public function infopelunasan($idbooking)
+    {
+        if ($this->session->has('isLoggedIn')) {
+            $client_id = $this->session->get('client_id');
+            $data['booking'] = $this->booking->detailBook($idbooking);
+            $data['bookingall'] = $this->booking->thisClientBook($client_id);
+            $data['chart'] = $this->chart->thisClientChart($client_id);
+            $data['countbooking'] = count($data['bookingall']);
+            $data['countchart'] = count($data['chart']);
+
+            $date = $data['booking']['tanggal_sesi'];
+            $dateParts = explode('/', $date);
+
+            $data['month'] = $dateParts[0];
+            $data['day'] = $dateParts[1];
+            $data['year'] = $dateParts[2];
+
+            $data['lunas'] = $data['booking']['total_akhir'];
+            $data['dp'] = ($data['booking']['total_akhir'] * (50/100));
+
+            // echo "<pre>";
+            // print_r($data);
+            return view('user/infopelunasan', $data);
+        } else {
+            return redirect()->to('login');
+        }
+    }
     public function bayarpesanan($idbooking)
     {
         if ($this->request->isAJAX()) {
-            $this->booking->set('status', 'Belum dibayar')->where('id_booking', $idbooking)->update();
+            // $this->booking->set('status', 'Belum dibayar')->where('id_booking', $idbooking)->update();
+            $msg['success'] = "$idbooking";
+            echo json_encode($msg);
+        }
+    }
+    public function bayarpelunasan($idbooking)
+    {
+        if ($this->request->isAJAX()) {
+            // $this->booking->set('status', 'DP<br>Menunggu Verifikasi')->where('id_booking', $idbooking)->update();
             $msg['success'] = "$idbooking";
             echo json_encode($msg);
         }
@@ -367,7 +406,7 @@ class PageUser extends BaseController
     public function konfirmasipembayaran($idbooking)
     {
         if ($this->request->isAJAX()) {
-            $this->booking->set('status', 'Menunggu Konfirmasi')->where('id_booking', $idbooking)->update();
+            // $this->booking->set('status', 'bel')->where('id_booking', $idbooking)->update();
             $msg['success'] = "$idbooking";
             echo json_encode($msg);
         }
@@ -399,25 +438,54 @@ class PageUser extends BaseController
             return redirect()->to('login');
         }
     }
+    public function konfirmpelunasan($idbooking)
+    {
+        if ($this->session->has('isLoggedIn')) {
+            $client_id = $this->session->get('client_id');
+            $data['booking'] = $this->booking->detailBook($idbooking);
+            $data['bookingall'] = $this->booking->thisClientBook($client_id);
+            $data['chart'] = $this->chart->thisClientChart($client_id);
+            $data['countbooking'] = count($data['bookingall']);
+            $data['countchart'] = count($data['chart']);
+
+            $date = $data['booking']['tanggal_sesi'];
+            $dateParts = explode('/', $date);
+
+            $data['month'] = $dateParts[0];
+            $data['day'] = $dateParts[1];
+            $data['year'] = $dateParts[2];
+
+            $data['lunas'] = $data['booking']['total_akhir'];
+            $data['dp'] = ($data['booking']['total_akhir'] * (50/100));
+
+            // echo "<pre>";
+            // print_r($data);
+            return view('user/konfirmpelunasan', $data);
+        } else {
+            return redirect()->to('login');
+        }
+    }
     public function acceptbukti($idbooking)
     {
         if ($this->request->isAJAX()) {
             $data = $data = $this->request->getVar();
 
+            // Mendapatkan file dari html
             $file = $this->request->getFile('bukti-transaksi');
 
             if ($file->isValid() && !$file->hasMoved()) {
+                // Nama File untuk disimpan
                 $newName = "$idbooking" . '.' . 'png';
-
                 $file_name = $newName;
-                $file_path = "./assets/userimg/bukti/" . $file_name;
-
+                $file_path = FCPATH . "assets/userimg/bukti/" . $file_name;
+                // Jika ada hapus.
                 if (file_exists($file_path)) {
                     unlink($file_path);
                 }
+                $path_move = FCPATH . 'assets/userimg/bukti/';
+                // Simpan baru
+                $file->move($path_move, $newName);
 
-                $file->move('./assets/userimg/bukti/', $newName);
-                // Save the file name to the database or do something else with it
 
                 $hasBukti = $this->bukti->findBukti($idbooking);
                 if ($hasBukti) {
@@ -445,7 +513,77 @@ class PageUser extends BaseController
 
                 $this->bukti->insert($insert);
 
-                $this->booking->set('status', 'Menunggu Verifikasi')->where('id_booking', $idbooking)->update();
+                if ($data['total-bayar'] == "dp") {
+                    $this->booking->set('status', 'DP<br>Menunggu Verifikasi')->where('id_booking', $idbooking)->update();
+                } elseif ($data['total-bayar'] == "lunas") {
+                    // Nama File untuk disimpan
+                    $newName = "$idbooking" . '.' . 'png';
+                    $file_name = $newName;
+                    $file_path = FCPATH . "assets/userimg/pelunasan/" . $file_name;
+                    // Jika ada hapus.
+                    if (file_exists($file_path)) {
+                        unlink($file_path);
+                    }
+                    $hasPelunasan = $this->pelunasan->findPelunasan($idbooking);
+                    if ($hasPelunasan) {
+                        $this->pelunasan->where('id_booking', $idbooking)->delete();
+                    }
+                    $this->booking->set('status', 'LUNAS<br>Menunggu Verifikasi')->where('id_booking', $idbooking)->update();
+                }
+            }
+
+            echo json_encode($data);
+        }
+    }
+    public function acceptpelunasan($idbooking)
+    {
+        if ($this->request->isAJAX()) {
+            $data = $data = $this->request->getVar();
+
+            $file = $this->request->getFile('bukti-transaksi');
+
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = "$idbooking" . '.' . 'png';
+
+                $file_name = $newName;
+                $file_path = FCPATH . "assets/userimg/pelunasan/" . $file_name;
+
+                if (file_exists($file_path)) {
+                    unlink($file_path);
+                }
+
+                $path_move = FCPATH . 'assets/userimg/pelunasan/';
+                // Simpan baru
+                $file->move($path_move, $newName);
+                // Save the file name to the database or do something else with it
+
+                $hasPelunasan = $this->pelunasan->findPelunasan($idbooking);
+                if ($hasPelunasan) {
+                    $this->pelunasan->where('id_booking', $idbooking)->delete();
+                }
+
+                // getId
+                $lastChart = $this->pelunasan->getLastData();
+                $prefix = substr($lastChart, 0, 2); // get the prefix "PIND"
+                $oldNumber = intval(substr($lastChart, 4)); // get the current number 002
+                $newNumber = $oldNumber + 1; // increment the number
+                $newValue = $prefix . '-' . sprintf('%03d', $newNumber);
+
+                $insert = [
+                    'id_pelunasan' => $newValue,
+                    'id_booking' => $idbooking,
+                    'total_bayar' => $data['total-bayar'],
+                    'nominal_bayar' => $data['nominal-bayar'],
+                    'metode_bayar' => $data['metode-pembayaran'],
+                    'no_rek' => $data['no-rek'],
+                    'atas_nama' => $data['atas-nama'],
+                    'pelunasan_url' => $file_name,
+                    'create_pelunasan' => date('Y-m-d H:i:s'),
+                ];
+
+                $this->pelunasan->insert($insert);
+
+                $this->booking->set('status', 'LUNAS<br>Menunggu Verifikasi')->where('id_booking', $idbooking)->update();
             }
 
             echo json_encode($data);
@@ -472,6 +610,10 @@ class PageUser extends BaseController
             $data['dp'] = ($data['booking']['total_akhir'] * (50/100));
 
             $data['bukti'] = $this->bukti->detailBukti($idbooking);
+            $hasPelunasan = $this->pelunasan->findPelunasan($idbooking);
+            if ($hasPelunasan) {
+                $data['pelunasan'] = $this->pelunasan->detailPelunasan($idbooking);
+            }
 
             // echo "<pre>";
             // print_r($data);

@@ -11,9 +11,10 @@
                 <div class="product-image">
                     <div class="fslider" data-pagi="false">
                         <div class="flexslider">
-                            <div class="slider-wrap"><a href="../assets/userimg/package/<?= $image_package ?>"
+                            <div class="slider-wrap"><a
+                                    href="<?= base_url(); ?>/assets/userimg/package/<?= $image_package ?>"
                                     title="<?= $title_package ?>">
-                                    <img src="../assets/userimg/package/<?= $image_package ?>"
+                                    <img src="<?= base_url(); ?>/assets/userimg/package/<?= $image_package ?>"
                                         alt="<?= $title_package ?>"></a>
                             </div>
                         </div>
@@ -38,14 +39,14 @@
                 ============================================= -->
                 <form class="cart mb-0 d-flex justify-content-between" method="post" enctype='multipart/form-data'>
                     <div class=" quantity clearfix">
-                        <a href="../booking/<?= $id_package ?>"
+                        <a href="<?= base_url(); ?>/booking/<?= $id_package ?>"
                             class="add-to-cart button button-border button-blue">BOOKING</a>
                     </div>
                     <?php if ($cart == true) {?>
                     <button type="button" class="add-to-cart button m-0" disabled>
                         <i class="icon-check"></i><i class="icon-shopping-bag"></i></button>
                     <?php } else {?>
-                    <a href="../tambahkeranjang/<?= $id_package ?>" class="add-to-cart button m-0">
+                    <a href="<?= base_url(); ?>/tambahkeranjang/<?= $id_package ?>" class="add-to-cart button m-0">
                         <i class="icon-plus"></i><i class="icon-shopping-bag"></i></a>
                     <?php } ?>
                 </form><!-- Product Single - Quantity & Cart Button End -->

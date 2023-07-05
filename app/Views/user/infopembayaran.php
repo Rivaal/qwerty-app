@@ -58,9 +58,11 @@ $level = $session->get('level'); ?>
                     </div>
 
                     <p>Anda dapat melakukan pembayaran dengan dua opsi, yaitu membayar secara penuh dengan total biaya
-                        sebesar Rp<?= number_format($lunas, 0, ",", "."); ?> atau melakukan pembayaran DP 50% dari total
-                        biaya yaitu sebesar Rp<?= number_format($dp, 0, ",", "."); ?>, pelunasan dilakukan sebelum
-                        sesi pemotretan dimulai.</p>
+                        sebesar <strong>Rp<?= number_format($lunas, 0, ",", "."); ?></strong> atau melakukan pembayaran
+                        DP 50% dari total biaya yaitu sebesar
+                        <strong>Rp<?= number_format($dp, 0, ",", "."); ?></strong>, pelunasan dilakukan sebelum sesi
+                        pemotretan dimulai.
+                    </p>
                     <p>Tata cara pembayaran :</p>
 
                     <div class="accordion accordion-bg">
@@ -315,15 +317,15 @@ $level = $session->get('level'); ?>
                             <tbody>
                                 <tr class="cart_item">
                                     <td class="cart-product-thumbnail">
-                                        <a href="../singledetail/<?= $booking['id_package'] ?>"><img width="64"
-                                                height="64"
-                                                src="../assets/userimg/package/<?= $booking['image_package'] ?>"
+                                        <a href="<?= base_url(); ?>/singledetail/<?= $booking['id_package'] ?>"><img
+                                                width="64" height="64"
+                                                src="<?= base_url(); ?>/assets/userimg/package/<?= $booking['image_package'] ?>"
                                                 alt="Pink Printed Dress"></a>
                                     </td>
 
                                     <td class="cart-product-name">
                                         <a
-                                            href="../singledetail/<?= $booking['id_package'] ?>"><?= $booking['title_package'] ?></a>
+                                            href="<?= base_url(); ?>/singledetail/<?= $booking['id_package'] ?>"><?= $booking['title_package'] ?></a>
                                     </td>
 
                                     <td class="cart-product-quantity">
@@ -417,10 +419,14 @@ $level = $session->get('level'); ?>
                         <br>
                     </div>
                     <ul class="clients-grid grid-2 grid-sm-3 grid-md-4 mb-0">
-                        <li class="grid-item"><a><img src="../assets/userimg/partner/Gojek.png" alt="Clients"></a></li>
-                        <li class="grid-item"><a><img src="../assets/userimg/partner/Dana.webp" alt="Clients"></a></li>
-                        <li class="grid-item"><a><img src="../assets/userimg/partner/BNI.png" alt="Clients"></a></li>
-                        <li class="grid-item"><a><img src="../assets/userimg/partner/BRI.png" alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="<?= base_url(); ?>/assets/userimg/partner/Gojek.png"
+                                    alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="<?= base_url(); ?>/assets/userimg/partner/Dana.webp"
+                                    alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="<?= base_url(); ?>/assets/userimg/partner/BNI.png"
+                                    alt="Clients"></a></li>
+                        <li class="grid-item"><a><img src="<?= base_url(); ?>/assets/userimg/partner/BRI.png"
+                                    alt="Clients"></a></li>
                     </ul>
                     <br>
                     <div class="col-12 form-group">
@@ -444,7 +450,7 @@ $level = $session->get('level'); ?>
 function confirm(idbooking) {
     $.ajax({
         type: "get",
-        url: "../konfirmasipembayaran/" + idbooking,
+        url: "<?= base_url(); ?>/konfirmasipembayaran/" + idbooking,
         data: "",
         dataType: "json",
         beforeSend: function(xhr) {
@@ -452,7 +458,7 @@ function confirm(idbooking) {
             $('#button-proses').text('Loading...')
         },
         success: function(response) {
-            window.location.replace("../konfirmpembayaran/" + response.success);
+            window.location.replace("<?= base_url(); ?>/konfirmpembayaran/" + response.success);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.status + "\n" + xhr.responseText + "\n" +
