@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+namespace Lkrms\Tests;
+
+use Lkrms\Facade\App;
+use Lkrms\Facade\Cache;
+
+$loader = require __DIR__ . '/../vendor/autoload.php';
+$loader->addPsr4('Lkrms\\Tests\\', __DIR__);
+
+$app = App::load(__DIR__)->loadCache();
+
+print_r([
+    'App::getInstance()->getCachePath()' => App::getInstance()->getCachePath(),
+    '$app->getDataPath()'                => $app->getDataPath(),
+    '$app->getLogPath()'                 => $app->getLogPath(),
+    'Cache::getInstance()'               => Cache::getInstance(),
+]);

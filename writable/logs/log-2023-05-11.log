@@ -1,0 +1,56 @@
+ERROR - 2023-05-11 07:05:41 --> mysqli_sql_exception: Incorrect column name ' ' in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 E:\Project\QwertyStudio\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-064325_CreateCatalog.php(37): CodeIgniter\Database\Forge->createTable('tb_catalog')
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateCatalog->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-11 07:06:56 --> mysqli_sql_exception: Incorrect column name ' ' in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 E:\Project\QwertyStudio\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-064325_CreateCatalog.php(37): CodeIgniter\Database\Forge->createTable('tb_catalog')
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateCatalog->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-11 07:09:02 --> mysqli_sql_exception: Incorrect column name ' ' in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 E:\Project\QwertyStudio\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-064325_CreateCatalog.php(37): CodeIgniter\Database\Forge->createTable('tb_catalog')
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateCatalog->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-11 07:09:56 --> mysqli_sql_exception: Incorrect column name ' ' in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 E:\Project\QwertyStudio\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-064325_CreateCatalog.php(37): CodeIgniter\Database\Forge->createTable('tb_catalog')
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateCatalog->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}

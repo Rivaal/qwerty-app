@@ -1,0 +1,33 @@
+{
+    "name": "lkrms/pretty-php",
+    "description": "The opinionated formatter for modern, expressive PHP",
+    "license": "MIT",
+    "bin": [
+        "bin/pretty-php"
+    ],
+    "require": {
+        "php": ">=8,<8.3",
+        "lkrms/util": "^0.19.24"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lkrms\\Pretty\\": "src/"
+        },
+        "files": [
+            "bootstrap.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "require-dev": {
+        "clue/phar-composer": "^1.4",
+        "phpstan/extension-installer": "^1",
+        "phpstan/phpstan": "^1",
+        "phpstan/phpstan-deprecation-rules": "^1",
+        "phpunit/phpunit": "^10"
+    }
+}

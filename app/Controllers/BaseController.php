@@ -9,22 +9,6 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-use App\Models\Banner1;
-use App\Models\Gallery;
-use App\Models\Categories;
-use App\Models\Video;
-use App\Models\Package;
-use App\Models\DetailPackage;
-use App\Models\ClientAccount;
-use App\Models\AdminAccount;
-use App\Models\ClientChart;
-use App\Models\Booking;
-use App\Models\BuktiTransaksi;
-use App\Models\PelunasanTransaksi;
-use App\Models\Income;
-use App\Models\Outcome;
-use App\Models\OTP;
-
 /**
  * Class BaseController
  *
@@ -59,21 +43,6 @@ abstract class BaseController extends Controller
      */
     // protected $session;
 
-    protected $banner1;
-    protected $gallery;
-    protected $categories;
-    protected $video;
-    protected $package;
-    protected $detailpackage;
-    protected $clientaccount;
-    protected $clientchart;
-    protected $booking;
-    protected $bukti;
-    protected $pelunasan;
-    protected $income;
-    protected $outcome;
-    protected $adminaccount;
-
     /**
      * Constructor.
      */
@@ -83,22 +52,7 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-        $this->banner1 = new Banner1();
-        $this->gallery = new Gallery();
-        $this->categories = new Categories();
-        $this->video = new Video();
-        $this->package = new Package();
-        $this->detailpackage = new DetailPackage();
-        $this->client = new ClientAccount();
-        $this->admin = new AdminAccount();
-        $this->chart = new ClientChart();
-        $this->booking = new Booking();
-        $this->bukti = new BuktiTransaksi();
-        $this->pelunasan = new PelunasanTransaksi();
-        $this->income = new Income();
-        $this->outcome = new Outcome();
-        $this->otp = new OTP();
-        $this->session = \Config\Services::session();
+
         // E.g.: $this->session = \Config\Services::session();
     }
 }

@@ -1,0 +1,45 @@
+{
+    "name": "lkrms/util",
+    "type": "library",
+    "license": "MIT",
+    "description": "A lightweight PHP toolkit for expressive backend/CLI apps",
+    "require": {
+        "php": ">=7.4,<8.3",
+        "composer-runtime-api": "^2.2",
+        "filp/whoops": "^2",
+        "lkrms/dice": "^4.1.4",
+        "psr/container": "^2",
+        "psr/log": "^1"
+    },
+    "suggest": {
+        "adodb/adodb-php": "Required for access to databases",
+        "analog/analog": "Allows Analog handlers to be used as Lkrms\\Console\\Console message targets",
+        "clue/phar-composer": "Simplifies creation of phar archives"
+    },
+    "require-dev": {
+        "adodb/adodb-php": "^5.22",
+        "analog/analog": "^1",
+        "clue/phar-composer": "^1",
+        "phpstan/extension-installer": "^1",
+        "phpstan/phpstan": "^1",
+        "phpstan/phpstan-deprecation-rules": "^1",
+        "phpunit/phpunit": "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lkrms\\": "src/"
+        },
+        "files": [
+            "bootstrap.php"
+        ]
+    },
+    "bin": [
+        "bin/lk-util"
+    ],
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}

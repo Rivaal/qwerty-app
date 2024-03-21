@@ -3,59 +3,50 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelUser;
 
 class Datatables extends BaseController
 {
-    public function income()
+    public function __construct()
     {
-        $income = $this->income
-            ->select('income_id, income_nominal, income_type, income_desc, income_actor, income_created')
-            ->findAll();
-        $json_data["data"] = $income;
-        // echo "<pre>";
-        echo json_encode($json_data);
+        $this->user = new ModelUser();
     }
-    public function outcome()
+    public function tableKaryawan()
     {
-        $outcome = $this->outcome
-            ->select('outcome_id, outcome_nominal, outcome_type, outcome_desc, outcome_actor, outcome_created')
+        $dataKaryawan["data"] = "";
+        $session = \Config\Services::session();
+        $level = $session->get('level');
+        if ($level == 0) {
+            $dataKaryawan = $this->user
+            ->select('username, userfullname, userphonenumber, useraddress, userlevel ,created_at')
+            ->where('userlevel <', '3')
             ->findAll();
-        $json_data["data"] = $outcome;
-        // echo "<pre>";
-        echo json_encode($json_data);
-    }
-    public function card_info()
-    {
-        if ($this->session->has('isLoggedIn')) {
-            $data['dp'] = $this->income->sumDeposit();
-            if ($data['dp'] == null) {
-                $data['dp'] = 0;
-            }
-            $data['pelunasan'] = $this->income->sumPelunasan();
-            if ($data['pelunasan'] == null) {
-                $data['pelunasan'] = 0;
-            }
-            $data['all'] = $this->income->sumAll();
-            if ($data['all'] == null) {
-                $data['all'] = 0;
-            }
-            $data['allout'] = $this->outcome->sumAll();
-            if ($data['allout'] == null) {
-                $data['allout'] = 0;
-            }
-            $data['clear'] = $data['all'] - $data['allout'];
-            $msg = [
-                'success' => [
-                    'dp' => $data['dp'],
-                    'pelunasan' => $data['pelunasan'],
-                    'all' => $data['all'],
-                    'out' => $data['allout'],
-                    'clear' => $data['clear'],
-                ]
-            ] ;
-        } else {
-            $msg['error'] = "expiry";
+        } elseif ($level == 1) {
+            $dataKaryawan = $this->user
+            ->select('username, userfullname, userphonenumber, useraddress, userlevel ,created_at')
+            ->where('userlevel >', '1')
+            ->where('userlevel <', '3')
+            ->findAll();
+        } elseif ($level == 2) {
+            $dataKaryawan = $this->user
+            ->select('username, userfullname, userphonenumber, useraddress, userlevel ,created_at')
+            ->where('userlevel', '2')
+            ->findAll();
         }
-        echo json_encode($msg);
+
+        $json_data["data"] = $dataKaryawan;
+        // echo "<pre>";
+        echo json_encode($json_data);
+    }
+    public function tableClient()
+    {
+        $dataClient["data"] = "";
+        $dataClient = $this->user
+        ->select('username, userfullname, userphonenumber, useraddress, userlevel ,created_at')
+        ->where('userlevel', '3')
+        ->findAll();
+        $json_data["data"] = $dataClient;
+        // echo "<pre>";
+        echo json_encode($json_data);
     }
 }

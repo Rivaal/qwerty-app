@@ -1,0 +1,97 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: lib/lk-util/Command/Generate/GenerateBuilder.php
+
+		-
+			message: "#^Property Lkrms\\\\LkUtil\\\\Command\\\\Generate\\\\GenerateBuilder\\:\\:\\$BuilderFqcn is never written, only read\\.$#"
+			count: 1
+			path: lib/lk-util/Command/Generate/GenerateBuilder.php
+
+		-
+			message: "#^Property Lkrms\\\\LkUtil\\\\Command\\\\Generate\\\\GenerateBuilder\\:\\:\\$ClassFqcn is never written, only read\\.$#"
+			count: 1
+			path: lib/lk-util/Command/Generate/GenerateBuilder.php
+
+		-
+			message: "#^Property Lkrms\\\\LkUtil\\\\Command\\\\Generate\\\\GenerateBuilder\\:\\:\\$ExtendsFqcn is never written, only read\\.$#"
+			count: 1
+			path: lib/lk-util/Command/Generate/GenerateBuilder.php
+
+		-
+			message: "#^Property Lkrms\\\\Cli\\\\CliAppContainer\\:\\:\\$Commands is never read, only written\\.$#"
+			count: 1
+			path: src/Cli/CliAppContainer.php
+
+		-
+			message: "#^Property Lkrms\\\\Cli\\\\CliOption\\:\\:\\$BindTo is never read, only written\\.$#"
+			count: 1
+			path: src/Cli/CliOption.php
+
+		-
+			message: "#^If condition is always false\\.$#"
+			count: 1
+			path: src/Cli/Concept/CliCommand.php
+
+		-
+			message: "#^Property Lkrms\\\\Container\\\\Container\\:\\:\\$Context is never read, only written\\.$#"
+			count: 1
+			path: src/Container/Container.php
+
+		-
+			message: "#^Property Lkrms\\\\Container\\\\Container\\:\\:\\$ContextStack is never read, only written\\.$#"
+			count: 1
+			path: src/Container/Container.php
+
+		-
+			message: "#^Property Lkrms\\\\Curler\\\\CurlerHeaders\\:\\:\\$Trailers is never read, only written\\.$#"
+			count: 1
+			path: src/Curler/CurlerHeaders.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method ADOConnection\\:\\:setConnectionParameter\\(\\) expects string, bool given\\.$#"
+			count: 1
+			path: src/Db/DbConnector.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method ADOConnection\\:\\:setConnectionParameter\\(\\) expects string, int given\\.$#"
+			count: 1
+			path: src/Db/DbConnector.php
+
+		-
+			message: "#^Do\\-while loop condition is always false\\.$#"
+			count: 1
+			path: src/Support/HttpServer.php
+
+		-
+			message: "#^Property Lkrms\\\\Sync\\\\Support\\\\SyncEntityProvider\\:\\:\\$GetFromSyncStore is never read, only written\\.$#"
+			count: 1
+			path: src/Sync/Support/SyncEntityProvider.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: src/Utility/Conversions.php
+
+		-
+			message: "#^Casting class ReflectionType to string is deprecated\\.$#"
+			count: 1
+			path: src/Utility/Reflection.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 2
+			path: src/Utility/Reflection.php
+
+		-
+			message: "#^Call to an undefined method Lkrms\\\\Cli\\\\CliOptionBuilder\\:\\:value\\(\\)\\.$#"
+			count: 1
+			path: tests/Cli/CliOptionBuilderTest.php
+
+		-
+			message: "#^Class Lkrms\\\\Tests\\\\Sync\\\\Entity not found\\.$#"
+			count: 1
+			path: tests/Sync/sync
+

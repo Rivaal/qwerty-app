@@ -1,0 +1,298 @@
+ERROR - 2023-03-31 03:06:43 --> mysqli_sql_exception: Unknown column 'tagline01' in 'field list' in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 E:\Project\QwertyStudio\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-025404_CreateBanner1.php(40): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateBanner1->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-31 03:07:45 --> mysqli_sql_exception: Table 'tb_banner1' already exists in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 E:\Project\QwertyStudio\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-025404_CreateBanner1.php(37): CodeIgniter\Database\Forge->createTable('tb_banner1')
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateBanner1->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-31 03:09:02 --> mysqli_sql_exception: Table 'tb_banner1' already exists in E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\Project\QwertyStudio\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 E:\Project\QwertyStudio\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 E:\Project\QwertyStudio\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 E:\Project\QwertyStudio\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 E:\Project\QwertyStudio\app\Database\Migrations\2023-03-31-025404_CreateBanner1.php(37): CodeIgniter\Database\Forge->createTable('tb_banner1')
+#5 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateBanner1->up()
+#6 E:\Project\QwertyStudio\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 E:\Project\QwertyStudio\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 E:\Project\QwertyStudio\system\CLI\BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 E:\Project\QwertyStudio\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 E:\Project\QwertyStudio\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 E:\Project\QwertyStudio\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 E:\Project\QwertyStudio\spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+CRITICAL - 2023-03-31 03:21:15 --> Undefined variable $tagline1
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline1', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(17): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:25:26 --> Undefined variable $tagline1
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline1', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:25:56 --> Undefined variable $data
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:26:22 --> Undefined variable $data
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:26:25 --> Undefined variable $data
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:27:00 --> Undefined variable $tagline1
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline1', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:27:08 --> Undefined variable $tagline01
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline01', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:31:28 --> Undefined variable $content
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $content', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:31:35 --> Undefined variable $content
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $content', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:32:05 --> Attempt to read property "tagline01" on array
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "tagline01" on array', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:32:51 --> Undefined variable $data
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:33:02 --> Undefined variable $tagline01
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline01', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:33:23 --> Array to string conversion
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:34:26 --> Undefined variable $tagline01
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline01', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:34:52 --> Undefined variable $tagline01
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tagline01', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:34:57 --> syntax error, unexpected token "[", expecting identifier or variable or "{" or "$"
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 3 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-31 03:38:34 --> Array to string conversion
+in APPPATH\Views\page\user\landing.php on line 331.
+ 1 APPPATH\Views\page\user\landing.php(331): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Views\\page\\user\\landing.php', 331)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\user\\landing.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('page/user/landing', [], true)
+ 5 APPPATH\Controllers\PageUser.php(20): view('page/user/landing', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PageUser->LandingPage()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PageUser))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-31 04:00:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:00:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:00:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:01:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:01:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:03:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:04:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:43:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:46:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 04:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 05:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 05:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 05:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 05:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 05:07:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:19:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:19:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:20:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:21:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:22:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:28:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:28:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:31:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:33:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:39:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-31 06:39:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

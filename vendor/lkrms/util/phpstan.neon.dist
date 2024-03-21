@@ -1,0 +1,34 @@
+includes:
+  - phpstan-baseline.neon
+  - tests/phpstan-conditional.php
+
+parameters:
+  level: 5
+  paths:
+    - bootstrap.php
+    - src
+    - lib
+    - bin/lk-util
+    - tests
+    - tests/app
+    - tests/cache
+    - tests/Cli/app
+    - tests/Cli/test-options
+    - tests/closure
+    - tests/console
+    - tests/convert
+    - tests/env
+    - tests/err
+    - tests/file
+    - tests/generate
+    - tests/ioc
+    - tests/lk-util
+    - tests/Reflect/property_resolver
+    - tests/sql
+    - tests/Support/http_server
+    - tests/Sync/sync
+    - tests/Template/tconstructible
+    - tests/Template/tgettable
+    - tests/trash
+  bootstrapFiles:
+    - tests/bootstrap.php

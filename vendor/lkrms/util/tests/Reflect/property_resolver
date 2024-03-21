@@ -1,0 +1,99 @@
+#!/usr/bin/env php
+<?php
+
+namespace Lkrms\Tests\Reflect;
+
+use DateTimeImmutable;
+use Lkrms\Concern\TConstructible;
+use Lkrms\Concern\TExtensible;
+use Lkrms\Concern\TFullyReadable;
+use Lkrms\Concern\TResolvable;
+use Lkrms\Concern\TWritable;
+use Lkrms\Contract\IConstructible;
+use Lkrms\Contract\IExtensible;
+use Lkrms\Contract\IReadable;
+use Lkrms\Contract\IResolvable;
+use Lkrms\Contract\IWritable;
+use Lkrms\Err\Err;
+use Lkrms\Support\Introspector;
+
+$loader = require __DIR__ . '/../../vendor/autoload.php';
+$loader->addPsr4('Lkrms\\Tests\\', __DIR__ . '/..');
+
+Err::load();
+
+class A implements IExtensible, IResolvable, IReadable, IWritable
+{
+    use TExtensible, TResolvable, TFullyReadable, TWritable;
+
+    public static function getWritable(): array
+    {
+        return ['Id', 'Name'];
+    }
+
+    protected $Id;
+
+    protected $Name;
+
+    protected $Unwritable = "can't change me";
+}
+
+class B extends A implements IConstructible
+{
+    use TConstructible;
+
+    public function __construct(DateTimeImmutable $instantiatedAt)
+    {
+        $this->InstantiatedAt = $instantiatedAt;
+    }
+
+    protected function _GetData()
+    {
+        return $this->Data;
+    }
+
+    protected function _SetData($value)
+    {
+        $this->Data         = $value;
+        $this->DataModified = time();
+    }
+
+    protected function _GetMeta()
+    {
+        return $this->Meta;
+    }
+
+    protected function _IssetMeta()
+    {
+        return isset($this->Meta);
+    }
+
+    protected function _SetMeta($value)
+    {
+        $this->Meta = $value;
+    }
+
+    protected function _UnsetMeta()
+    {
+        $this->Meta = null;
+    }
+
+    private $Data = [];
+
+    private $Meta;
+
+    protected $InstantiatedAt;
+
+    protected $DataModified;
+
+    // @phpstan-ignore-next-line
+    private $DoNotEven;
+}
+
+$a = Introspector::get(A::class);
+$b = Introspector::get(B::class);
+
+print_r([
+    'A' => $a,
+    'B' => $b,
+]);

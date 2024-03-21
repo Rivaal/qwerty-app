@@ -1,0 +1,91 @@
+#!/usr/bin/env php
+<?php
+
+namespace Lkrms\Tests;
+
+use Lkrms\Console\ConsoleFormatter;
+use Lkrms\Console\Target\StreamTarget;
+use Lkrms\Err\Err;
+use Lkrms\Facade\Console;
+
+$loader = require __DIR__ . '/../vendor/autoload.php';
+$loader->addPsr4('Lkrms\\Tests\\', __DIR__);
+
+Err::load();
+
+// Send all output, including debug messages and errors, to STDOUT
+Console::registerTarget(new StreamTarget(STDOUT));
+
+$items = [
+    [100, 101, 102],
+    [200, 201, 202],
+    [300, 301, 302],
+];
+
+Console::group('Processing items');
+
+for ($i = 0; $i < count($items); $i++) {
+    Console::info('Processing row:', (string) ($i + 1));
+
+    for ($j = 0; $j < count($items[$i]); $j++) {
+        Console::log('Processing item:', (string) $items[$i][$j]);
+    }
+
+    if ($i % 2) {
+        Console::warn('WARNING: odd-numbered index at row:', (string) ($i + 1));
+    } else {
+        Console::debug('Row processing complete');
+    }
+}
+
+Console::groupEnd();
+
+$i = 0;
+
+while ($i++ < 5) {
+    Console::infoOnce('This message is printed repeatedly',
+                      'but it should only appear once');
+    Console::logOnce('This message is printed repeatedly',
+                     'but it should only appear once');
+    Console::debugOnce('This message is printed repeatedly',
+                       'but it should only appear once');
+}
+
+Console::info('`This is a __preformatted span__`,', "and here's a regular __span__");
+Console::log('```
+This is a __preformatted block__, with nothing else in the string
+```');
+
+Console::info('A \`preformatted\` __block__ starts after the next line.
+___There should be no blank lines.___
+```
+~~Here\'s some \\\\```__preformatted__\`\`\` text.~~
+```
+And ... _done_. ~~Did two backslashes survive on the left? Three on the right?~~');
+
+Console::log('A similar block, enclosed between __inline__ delimiters, starts after the next line.
+___There should be blank lines.___
+`
+~~Here\'s some \\\\\\`\`\`__preformatted__\`\`\` text.~~
+`
+~~So let it be written. Hopefully with only one backslash. On the left.~~');
+
+class TestClass
+{
+    public static function logDebugMessage(int $depth)
+    {
+        Console::debug("\$depth = $depth", null, null, $depth);
+    }
+
+    public static function callDebugLogger(int $depth = 0)
+    {
+        self::logDebugMessage($depth);
+    }
+}
+
+TestClass::callDebugLogger();
+TestClass::callDebugLogger(1);
+TestClass::callDebugLogger(2);
+
+var_dump($escaped = ConsoleFormatter::escape('Backticks (`) and backslashes (\) should be escaped (`, \)'));
+Console::info($escaped);
