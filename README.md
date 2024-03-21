@@ -1,54 +1,50 @@
-# CodeIgniter 4 Framework
 
-## What is CodeIgniter?
+# QWERTY Studio
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+QWERTY Studio is a comprehensive web-based platform designed for booking and scheduling photography and videography services. This repository contains the source code for the QWERTY Studio project.
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Features
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+- User-friendly interface for clients to browse services and make bookings
+- Admin dashboard for managing bookings, clients, and services
+- Integration with WhatsApp API for OTP-based registration
+- Utilizes CodeIgniter 4 framework with PHP, JavaScript, HTML, and CSS
 
-## Important Change with index.php
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Run Locally
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Clone the project
 
-**Please** read the user guide for a better explanation of how CI4 works!
+```bash
+  git clone https://github.com/Rivaal/qwerty-app
+```
 
-## Repository Management
+Go to the project directory
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+  cd qwerty-app
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Start the server
 
-## Contributing
+```bash
+  php spark serve
+```
 
-We welcome contributions from the community.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+## Screenshots
 
-## Server Requirements
+A few Screenshots of the project
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+![Home Page Client 2](https://raw.githubusercontent.com/Rivaal/qwerty-app/master/screenshot_app/1client-homepage.PNG)
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+![Home Page Client 2](https://raw.githubusercontent.com/Rivaal/qwerty-app/master/screenshot_app/2client-homepage2.PNG)
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+![Home Page Client 2](https://raw.githubusercontent.com/Rivaal/qwerty-app/master/screenshot_app/3client-gallery.PNG)
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+![Home Page Client 2](https://raw.githubusercontent.com/Rivaal/qwerty-app/master/screenshot_app/6client-register.PNG)
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rivaldo-saputra-rivalartwork/)
+
